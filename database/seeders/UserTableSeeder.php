@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -13,14 +14,14 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        User::create([
             'name' => 'super_admin',
             'email' => 'root@neputer.com',
             'password' => bcrypt('secret'),
-            'verification_token' => '',
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
 
     }
 }

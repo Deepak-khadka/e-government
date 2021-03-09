@@ -1,9 +1,11 @@
 import axios from 'axios';
 const url ="http://e-government.bro/api";
+
 const http = axios.create({
     baseURL:url,
     responseType:'json'
 })
+
 const getHeaders =(isSecured)=>{
     const token = sessionStorage.getItem("token")
     let object ={
@@ -30,6 +32,7 @@ const PUT =(url,data,isSecured,params={})=>{
         params
     })
 }
+
 const GET =(url, params={})=>{
     return http.get(url,{
         headers:getHeaders(),

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ProfileDetails from "./partials/ProfileDetails";
-
 import ProfileEditForm from "./partials/ProfileEditForm";
 
 function Profile() {

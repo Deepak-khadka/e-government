@@ -7,16 +7,15 @@ use App\Models\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Neputer\AdminController\BaseController;
-use Neputer\Mixins\Responsable;
 
 class ProfileController extends BaseController
 {
-    use Responsable;
+
 
     public function index()
     {
-        $user = User::where('id',2)->first();
-        return $this->responseOk($user);
+        $user = User::where('id',1)->first();
+        return $this->responseOk(new UserResource($user));
     }
     public function store(Request $request)
     {
