@@ -1,9 +1,8 @@
 <?php
 
-namespace Neputer\{{ Controller }}\Controller;
+namespace Neputer\AdminController;
 use Exception;
-use Neputer\{{ Model }}\Model\{{ Model }};
-use App\Http\Controllers\BaseController;
+use Neputer\Entities\{{ Model }};
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -89,7 +88,7 @@ class {{ Controller }}Controller extends BaseController
       /**
           * Remove the specified resource from storage.
           *
-          * @param Admin $id
+          * @param {{ Model }} $id
           * @return RedirectResponse
           * @throws Exception
           */

@@ -170,7 +170,7 @@ module.exports = function xhrAdapter(config) {
       request.addEventListener('progress', config.onDownloadProgress);
     }
 
-    // Not all browsers support upload events
+    // Not all browsers Support upload events
     if (typeof config.onUploadProgress === 'function' && request.upload) {
       request.upload.addEventListener('progress', config.onUploadProgress);
     }
@@ -1171,7 +1171,7 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 module.exports = (
   utils.isStandardBrowserEnv() ?
 
-  // Standard browser envs support document.cookie
+  // Standard browser envs Support document.cookie
     (function standardBrowserEnv() {
       return {
         write: function write(name, value, expires, path, domain, secure) {
@@ -1208,7 +1208,7 @@ module.exports = (
       };
     })() :
 
-  // Non standard browser env (web workers, react-native) lack needed support.
+  // Non standard browser env (web workers, react-native) lack needed Support.
     (function nonStandardBrowserEnv() {
       return {
         write: function write() {},
@@ -1282,7 +1282,7 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 module.exports = (
   utils.isStandardBrowserEnv() ?
 
-  // Standard browser envs have full support of the APIs needed to test
+  // Standard browser envs have full Support of the APIs needed to test
   // whether the request URL is of the same origin as current location.
     (function standardBrowserEnv() {
       var msie = /(msie|trident)/i.test(navigator.userAgent);
@@ -1336,7 +1336,7 @@ module.exports = (
       };
     })() :
 
-  // Non standard browser envs (web workers, react-native) lack needed support.
+  // Non standard browser envs (web workers, react-native) lack needed Support.
     (function nonStandardBrowserEnv() {
       return function isURLSameOrigin() {
         return true;
@@ -1675,7 +1675,7 @@ function trim(str) {
  * Determine if we're running in a standard browser environment
  *
  * This allows axios to run in a web worker, and react-native.
- * Both environments support XMLHttpRequest, but not fully standard globals.
+ * Both environments Support XMLHttpRequest, but not fully standard globals.
  *
  * web workers:
  *  typeof window -> undefined
@@ -1865,7 +1865,7 @@ __webpack_require__(/*! ./components/Example */ "./resources/js/components/Examp
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
+ * We'll load jQuery and the Bootstrap jQuery plugin which provides Support
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
  */
@@ -3861,7 +3861,7 @@ if (document.getElementById('example')) {
         if (hideEvent.isDefaultPrevented()) {
           continue;
         } // If this is a touch-enabled device we remove the extra
-        // empty mouseover listeners we added for iOS support
+        // empty mouseover listeners we added for iOS Support
 
 
         if ('ontouchstart' in document.documentElement) {
@@ -5028,7 +5028,7 @@ if (document.getElementById('example')) {
       }
 
       $__default['default'](tip).removeClass(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we remove the extra
-      // empty mouseover listeners we added for iOS support
+      // empty mouseover listeners we added for iOS Support
 
       if ('ontouchstart' in document.documentElement) {
         $__default['default'](document.body).children().off('mouseover', null, $__default['default'].noop);
@@ -6510,7 +6510,7 @@ var document = window.document;
 			for ( i in preservedScriptAttributes ) {
 
 				// Support: Firefox 64+, Edge 18+
-				// Some browsers don't support the "nonce" property on scripts.
+				// Some browsers don't Support the "nonce" property on scripts.
 				// On the other hand, just using `getAttribute` is not enough as
 				// the `nonce` attribute is reset to an empty string whenever it
 				// becomes browsing-context connected.
@@ -6884,7 +6884,7 @@ jQuery.extend( {
 	// A global GUID counter for objects
 	guid: 1,
 
-	// jQuery.support is not used in Core but other projects attach their
+	// jQuery.Support is not used in Core but other projects attach their
 	// properties to it so it needs to exist.
 	support: support
 } );
@@ -7498,7 +7498,7 @@ function testContext( context ) {
 	return context && typeof context.getElementsByTagName !== "undefined" && context;
 }
 
-// Expose support vars for convenience
+// Expose Support vars for convenience
 support = Sizzle.support = {};
 
 /**
@@ -7560,7 +7560,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Support: IE 8 - 11+, Edge 12 - 18+, Chrome <=16 - 25 only, Firefox <=3.6 - 31 only,
 	// Safari 4 - 5 only, Opera <=11.6 - 12.x only
-	// IE/Edge & older browsers don't support the :scope pseudo-class.
+	// IE/Edge & older browsers don't Support the :scope pseudo-class.
 	// Support: Safari 6.0 only
 	// Safari 6.0 supports :scope but it's an alias of :root there.
 	support.scope = assert( function( el ) {
@@ -7699,7 +7699,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	/* QSA/matchesSelector
 	---------------------------------------------------------------------- */
 
-	// QSA and matchesSelector support
+	// QSA and matchesSelector Support
 
 	// matchesSelector(:active) reports false when true (IE9/Opera 11.5)
 	rbuggyMatches = [];
@@ -8459,7 +8459,7 @@ Expr = Sizzle.selectors = {
 				return fn( argument );
 			}
 
-			// But maintain support for old signatures
+			// But maintain Support for old signatures
 			if ( fn.length > 1 ) {
 				args = [ pseudo, pseudo, "", argument ];
 				return Expr.setFilters.hasOwnProperty( pseudo.toLowerCase() ) ?
@@ -9538,7 +9538,7 @@ var rootjQuery,
 		}
 
 		// Method init() accepts an alternate rootjQuery
-		// so migrate can support jQuery.sub (gh-2101)
+		// so migrate can Support jQuery.sub (gh-2101)
 		root = root || rootjQuery;
 
 		// Handle HTML strings
@@ -9779,7 +9779,7 @@ jQuery.each( {
 
 		// Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
 		// Treat the template element as a regular one in browsers that
-		// don't support it.
+		// don't Support it.
 		if ( nodeName( elem, "template" ) ) {
 			elem = elem.content || elem;
 		}
@@ -10789,7 +10789,7 @@ var dataUser = new Data();
 //	1. Enforce API surface and semantic compatibility with 1.9.x branch
 //	2. Improve the module's maintainability by reducing the storage
 //		paths to a single mechanism.
-//	3. Use the same single mechanism to support "private" and "user" data.
+//	3. Use the same single mechanism to Support "private" and "user" data.
 //	4. _Never_ expose "private" data to user code (TODO: Drop _data, _removeData)
 //	5. Avoid exposing implementation details on user objects (eg. expando properties)
 //	6. Provide a clear path for implementation upgrade to WeakMap in 2014
@@ -11105,7 +11105,7 @@ var documentElement = document.documentElement;
 	// Support: IE 9 - 11+, Edge 12 - 18+, iOS 10.0 - 10.2 only
 	// Check attachment across shadow DOM boundaries when possible (gh-3504)
 	// Support: iOS 10.0-10.2 only
-	// Early iOS 10 versions support `attachShadow` but not `getRootNode`,
+	// Early iOS 10 versions Support `attachShadow` but not `getRootNode`,
 	// leading to errors. We need to check for `getRootNode`.
 	if ( documentElement.getRootNode ) {
 		isAttached = function( elem ) {
@@ -11334,7 +11334,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 } )();
 
 
-// We have to close these tags to support XHTML (#13200)
+// We have to close these tags to Support XHTML (#13200)
 var wrapMap = {
 
 	// XHTML parsers do not magically insert elements in the
@@ -12429,7 +12429,7 @@ function cloneCopyEvent( src, dest ) {
 	}
 }
 
-// Fix IE bugs, see support tests
+// Fix IE bugs, see Support tests
 function fixInput( src, dest ) {
 	var nodeName = dest.nodeName.toLowerCase();
 
@@ -13033,7 +13033,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 				return;
 			}
 
-			// Hook needed; redefine it so that the support test is not executed again.
+			// Hook needed; redefine it so that the Support test is not executed again.
 			return ( this.get = hookFn ).apply( this, arguments );
 		}
 	};
@@ -17797,7 +17797,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.forEach` for arrays without support for
+   * A specialized version of `_.forEach` for arrays without Support for
    * iteratee shorthands.
    *
    * @private
@@ -17818,7 +17818,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.forEachRight` for arrays without support for
+   * A specialized version of `_.forEachRight` for arrays without Support for
    * iteratee shorthands.
    *
    * @private
@@ -17838,7 +17838,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.every` for arrays without support for
+   * A specialized version of `_.every` for arrays without Support for
    * iteratee shorthands.
    *
    * @private
@@ -17860,7 +17860,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.filter` for arrays without support for
+   * A specialized version of `_.filter` for arrays without Support for
    * iteratee shorthands.
    *
    * @private
@@ -17884,7 +17884,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.includes` for arrays without support for
+   * A specialized version of `_.includes` for arrays without Support for
    * specifying an index to search from.
    *
    * @private
@@ -17919,7 +17919,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.map` for arrays without support for iteratee
+   * A specialized version of `_.map` for arrays without Support for iteratee
    * shorthands.
    *
    * @private
@@ -17958,7 +17958,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.reduce` for arrays without support for
+   * A specialized version of `_.reduce` for arrays without Support for
    * iteratee shorthands.
    *
    * @private
@@ -17983,7 +17983,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.reduceRight` for arrays without support for
+   * A specialized version of `_.reduceRight` for arrays without Support for
    * iteratee shorthands.
    *
    * @private
@@ -18006,7 +18006,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * A specialized version of `_.some` for arrays without support for iteratee
+   * A specialized version of `_.some` for arrays without Support for iteratee
    * shorthands.
    *
    * @private
@@ -18060,7 +18060,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
   /**
    * The base implementation of methods like `_.findKey` and `_.findLastKey`,
-   * without support for iteratee shorthands, which iterates over `collection`
+   * without Support for iteratee shorthands, which iterates over `collection`
    * using `eachFunc`.
    *
    * @private
@@ -18082,7 +18082,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
   /**
    * The base implementation of `_.findIndex` and `_.findLastIndex` without
-   * support for iteratee shorthands.
+   * Support for iteratee shorthands.
    *
    * @private
    * @param {Array} array The array to inspect.
@@ -18141,7 +18141,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.isNaN` without support for number objects.
+   * The base implementation of `_.isNaN` without Support for number objects.
    *
    * @private
    * @param {*} value The value to check.
@@ -18152,7 +18152,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.mean` and `_.meanBy` without support for
+   * The base implementation of `_.mean` and `_.meanBy` without Support for
    * iteratee shorthands.
    *
    * @private
@@ -18166,7 +18166,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.property` without support for deep paths.
+   * The base implementation of `_.property` without Support for deep paths.
    *
    * @private
    * @param {string} key The key of the property to get.
@@ -18179,7 +18179,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.propertyOf` without support for deep paths.
+   * The base implementation of `_.propertyOf` without Support for deep paths.
    *
    * @private
    * @param {Object} object The object to query.
@@ -18192,7 +18192,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.reduce` and `_.reduceRight`, without support
+   * The base implementation of `_.reduce` and `_.reduceRight`, without Support
    * for iteratee shorthands, which iterates over `collection` using `eachFunc`.
    *
    * @private
@@ -18234,7 +18234,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.sum` and `_.sumBy` without support for
+   * The base implementation of `_.sum` and `_.sumBy` without Support for
    * iteratee shorthands.
    *
    * @private
@@ -18257,7 +18257,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.times` without support for iteratee shorthands
+   * The base implementation of `_.times` without Support for iteratee shorthands
    * or max array length checks.
    *
    * @private
@@ -18304,7 +18304,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   }
 
   /**
-   * The base implementation of `_.unary` without support for storing metadata.
+   * The base implementation of `_.unary` without Support for storing metadata.
    *
    * @private
    * @param {Function} func The function to cap arguments for.
@@ -18867,7 +18867,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * The execution of chained methods is lazy, that is, it's deferred until
      * `_#value` is implicitly or explicitly called.
      *
-     * Lazy evaluation allows several methods to support shortcut fusion.
+     * Lazy evaluation allows several methods to Support shortcut fusion.
      * Shortcut fusion is an optimization to merge iteratee calls; this avoids
      * the creation of intermediate arrays and can greatly reduce the number of
      * iteratee executions. Sections of a chain sequence qualify for shortcut
@@ -18886,7 +18886,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * The wrapper `String` methods are:
      * `replace` and `split`
      *
-     * The wrapper methods that support shortcut fusion are:
+     * The wrapper methods that Support shortcut fusion are:
      * `at`, `compact`, `drop`, `dropRight`, `dropWhile`, `filter`, `find`,
      * `findLast`, `head`, `initial`, `last`, `map`, `reject`, `reverse`, `slice`,
      * `tail`, `take`, `takeRight`, `takeRightWhile`, `takeWhile`, and `toArray`
@@ -18983,7 +18983,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.create` without support for assigning
+     * The base implementation of `_.create` without Support for assigning
      * properties to the created object.
      *
      * @private
@@ -19838,7 +19838,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.assign` without support for multiple sources
+     * The base implementation of `_.assign` without Support for multiple sources
      * or `customizer` functions.
      *
      * @private
@@ -19851,7 +19851,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.assignIn` without support for multiple sources
+     * The base implementation of `_.assignIn` without Support for multiple sources
      * or `customizer` functions.
      *
      * @private
@@ -19886,7 +19886,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.at` without support for individual paths.
+     * The base implementation of `_.at` without Support for individual paths.
      *
      * @private
      * @param {Object} object The object to iterate over.
@@ -20076,7 +20076,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of methods like `_.difference` without support
+     * The base implementation of methods like `_.difference` without Support
      * for excluding multiple arrays or iteratee shorthands.
      *
      * @private
@@ -20132,7 +20132,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.forEach` without support for iteratee shorthands.
+     * The base implementation of `_.forEach` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -20142,7 +20142,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     var baseEach = createBaseEach(baseForOwn);
 
     /**
-     * The base implementation of `_.forEachRight` without support for iteratee shorthands.
+     * The base implementation of `_.forEachRight` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -20152,7 +20152,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     var baseEachRight = createBaseEach(baseForOwnRight, true);
 
     /**
-     * The base implementation of `_.every` without support for iteratee shorthands.
+     * The base implementation of `_.every` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -20227,7 +20227,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.filter` without support for iteratee shorthands.
+     * The base implementation of `_.filter` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -20245,7 +20245,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.flatten` with support for restricting flattening.
+     * The base implementation of `_.flatten` with Support for restricting flattening.
      *
      * @private
      * @param {Array} array The array to flatten.
@@ -20304,7 +20304,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     var baseForRight = createBaseFor(true);
 
     /**
-     * The base implementation of `_.forOwn` without support for iteratee shorthands.
+     * The base implementation of `_.forOwn` without Support for iteratee shorthands.
      *
      * @private
      * @param {Object} object The object to iterate over.
@@ -20316,7 +20316,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.forOwnRight` without support for iteratee shorthands.
+     * The base implementation of `_.forOwnRight` without Support for iteratee shorthands.
      *
      * @private
      * @param {Object} object The object to iterate over.
@@ -20343,7 +20343,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.get` without support for default values.
+     * The base implementation of `_.get` without Support for default values.
      *
      * @private
      * @param {Object} object The object to query.
@@ -20408,7 +20408,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.has` without support for deep paths.
+     * The base implementation of `_.has` without Support for deep paths.
      *
      * @private
      * @param {Object} [object] The object to query.
@@ -20420,7 +20420,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.hasIn` without support for deep paths.
+     * The base implementation of `_.hasIn` without Support for deep paths.
      *
      * @private
      * @param {Object} [object] The object to query.
@@ -20445,7 +20445,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of methods like `_.intersection`, without support
+     * The base implementation of methods like `_.intersection`, without Support
      * for iteratee shorthands, that accepts an array of arrays to inspect.
      *
      * @private
@@ -20526,7 +20526,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.invoke` without support for individual
+     * The base implementation of `_.invoke` without Support for individual
      * method arguments.
      *
      * @private
@@ -20670,7 +20670,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.isMatch` without support for iteratee shorthands.
+     * The base implementation of `_.isMatch` without Support for iteratee shorthands.
      *
      * @private
      * @param {Object} object The object to inspect.
@@ -20853,7 +20853,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.map` without support for iteratee shorthands.
+     * The base implementation of `_.map` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -20908,7 +20908,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.merge` without support for multiple sources.
+     * The base implementation of `_.merge` without Support for multiple sources.
      *
      * @private
      * @param {Object} object The destination object.
@@ -21073,7 +21073,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.pick` without support for individual
+     * The base implementation of `_.pick` without Support for individual
      * property identifiers.
      *
      * @private
@@ -21088,7 +21088,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of  `_.pickBy` without support for iteratee shorthands.
+     * The base implementation of  `_.pickBy` without Support for iteratee shorthands.
      *
      * @private
      * @param {Object} object The source object.
@@ -21126,7 +21126,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.pullAllBy` without support for iteratee
+     * The base implementation of `_.pullAllBy` without Support for iteratee
      * shorthands.
      *
      * @private
@@ -21164,7 +21164,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.pullAt` without support for individual
+     * The base implementation of `_.pullAt` without Support for individual
      * indexes or capturing the removed elements.
      *
      * @private
@@ -21191,7 +21191,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.random` without support for returning
+     * The base implementation of `_.random` without Support for returning
      * floating-point numbers.
      *
      * @private
@@ -21335,7 +21335,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `setData` without support for hot loop shorting.
+     * The base implementation of `setData` without Support for hot loop shorting.
      *
      * @private
      * @param {Function} func The function to associate metadata with.
@@ -21348,7 +21348,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     };
 
     /**
-     * The base implementation of `setToString` without support for hot loop shorting.
+     * The base implementation of `setToString` without Support for hot loop shorting.
      *
      * @private
      * @param {Function} func The function to modify.
@@ -21406,7 +21406,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.some` without support for iteratee shorthands.
+     * The base implementation of `_.some` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array|Object} collection The collection to iterate over.
@@ -21515,7 +21515,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * The base implementation of `_.sortedUniq` and `_.sortedUniqBy` without
-     * support for iteratee shorthands.
+     * Support for iteratee shorthands.
      *
      * @private
      * @param {Array} array The array to inspect.
@@ -21583,7 +21583,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of `_.uniqBy` without support for iteratee shorthands.
+     * The base implementation of `_.uniqBy` without Support for iteratee shorthands.
      *
      * @private
      * @param {Array} array The array to inspect.
@@ -21673,7 +21673,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * The base implementation of methods like `_.dropWhile` and `_.takeWhile`
-     * without support for iteratee shorthands.
+     * without Support for iteratee shorthands.
      *
      * @private
      * @param {Array} array The array to query.
@@ -21715,7 +21715,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * The base implementation of methods like `_.xor`, without support for
+     * The base implementation of methods like `_.xor`, without Support for
      * iteratee shorthands, that accepts an array of arrays to inspect.
      *
      * @private
@@ -22943,7 +22943,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * A specialized version of `baseIsEqualDeep` for arrays with support for
+     * A specialized version of `baseIsEqualDeep` for arrays with Support for
      * partial deep comparisons.
      *
      * @private
@@ -23100,7 +23100,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * A specialized version of `baseIsEqualDeep` for objects with support for
+     * A specialized version of `baseIsEqualDeep` for objects with Support for
      * partial deep comparisons.
      *
      * @private
@@ -31348,7 +31348,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * Checks if `n` is between `start` and up to, but not including, `end`. If
      * `end` is not specified, it's set to `start` with `start` then set to `0`.
-     * If `start` is greater than `end` the params are swapped to support
+     * If `start` is greater than `end` the params are swapped to Support
      * negative ranges.
      *
      * @static
@@ -32074,7 +32074,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * // => 'hello barney!'
      *
      * // Use the ES template literal delimiter as an "interpolate" delimiter.
-     * // Disable support by replacing the "interpolate" delimiter.
+     * // Disable Support by replacing the "interpolate" delimiter.
      * var compiled = _.template('hello ${ user }!');
      * compiled({ 'user': 'pebbles' });
      * // => 'hello pebbles!'
@@ -35628,7 +35628,7 @@ function destroy() {
   this.disableEventListeners();
 
   // remove the popper if user explicitly asked for the deletion on destroy
-  // do not use `remove` because IE11 doesn't support it
+  // do not use `remove` because IE11 doesn't Support it
   if (this.options.removeOnDestroy) {
     this.popper.parentNode.removeChild(this.popper);
   }
@@ -35893,7 +35893,7 @@ function computeStyle(data, options) {
       y = options.y;
   var popper = data.offsets.popper;
 
-  // Remove this legacy support in Popper.js v2
+  // Remove this legacy Support in Popper.js v2
 
   var legacyGpuAccelerationOption = find(data.instance.modifiers, function (modifier) {
     return modifier.name === 'applyStyle';
@@ -37593,7 +37593,7 @@ var tracing = __webpack_require__(/*! scheduler/tracing */ "./node_modules/sched
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED; // Prevent newer renderers from RTE when used with older react package versions.
 // Current owner and dispatcher used to share the same ref,
-// but PR #14548 split them out to better support the react-debug-tools package.
+// but PR #14548 split them out to better Support the react-debug-tools package.
 
 if (!ReactSharedInternals.hasOwnProperty('ReactCurrentDispatcher')) {
   ReactSharedInternals.ReactCurrentDispatcher = {
@@ -37730,7 +37730,7 @@ var invokeGuardedCallbackImpl = function (name, func, context, a, b, c, d, e, f)
 
       var didError = true; // Keeps track of the value of window.event so that we can reset it
       // during the callback to let user code access window.event in the
-      // browsers that support it.
+      // browsers that Support it.
 
       var windowEvent = window.event; // Keeps track of the descriptor of window.event to restore it after event
       // dispatching: https://github.com/facebook/react/issues/13688
@@ -37749,7 +37749,7 @@ var invokeGuardedCallbackImpl = function (name, func, context, a, b, c, d, e, f)
         fakeNode.removeEventListener(evtType, callCallback, false); // We check for window.hasOwnProperty('event') to prevent the
         // window.event assignment in both IE <= 10 as they throw an error
         // "Member not found" in strict mode, and in Firefox which does not
-        // support window.event.
+        // Support window.event.
 
         if (typeof window.event !== 'undefined' && window.hasOwnProperty('event')) {
           window.event = windowEvent;
@@ -38295,9 +38295,9 @@ function restoreStateIfNeeded() {
 
 var enableProfilerTimer = true; // Trace which interactions trigger each commit.
 
-var enableDeprecatedFlareAPI = false; // Experimental Host Component support.
+var enableDeprecatedFlareAPI = false; // Experimental Host Component Support.
 
-var enableFundamentalAPI = false; // Experimental Scope support.
+var enableFundamentalAPI = false; // Experimental Scope Support.
 var warnAboutStringRefs = false;
 
 // the renderer. Such as when we're dispatching events or if third party
@@ -39587,7 +39587,7 @@ function updateNamedCousins(rootNode, props) {
         continue;
       } // This will throw if radio buttons rendered by different copies of React
       // and the same name are rendered into the same form (same as #1939).
-      // That's probably okay; we don't support it just as we don't support
+      // That's probably okay; we don't Support it just as we don't Support
       // mixing React radio buttons with non-React ones.
 
 
@@ -39681,7 +39681,7 @@ function validateProps(element, props) {
           error('Only strings and numbers are supported as <option> children.');
         }
       });
-    } // TODO: Remove support for `selected` in <option>.
+    } // TODO: Remove Support for `selected` in <option>.
 
 
     if (props.selected != null && !didWarnSelectedSetOnOption) {
@@ -40941,7 +40941,7 @@ function isEventSupported(eventNameSuffix) {
  *
  *  - Top-level delegation is used to trap most native browser events. This
  *    may only occur in the main thread and is the responsibility of
- *    ReactDOMEventListener, which is injected and can therefore support
+ *    ReactDOMEventListener, which is injected and can therefore Support
  *    pluggable event sources. This is the only work that occurs in the main
  *    thread.
  *
@@ -44407,10 +44407,10 @@ function getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNo
   };
 }
 /**
- * In modern non-IE browsers, we can support both forward and backward
+ * In modern non-IE browsers, we can Support both forward and backward
  * selections.
  *
- * Note: IE10+ supports the Selection object, but it does not support
+ * Note: IE10+ supports the Selection object, but it does not Support
  * the `extend` method, which means that even in modern IE, it's not possible
  * to programmatically create a backward selection. Thus, for all IE
  * versions, we use the old IE API to create our selections.
@@ -44432,7 +44432,7 @@ function setOffsets(node, offsets) {
   var selection = win.getSelection();
   var length = node.textContent.length;
   var start = Math.min(offsets.start, length);
-  var end = offsets.end === undefined ? start : Math.min(offsets.end, length); // IE 11 uses modern selection, but doesn't support the extend method.
+  var end = offsets.end === undefined ? start : Math.min(offsets.end, length); // IE 11 uses modern selection, but doesn't Support the extend method.
   // Flip backward selections, so we can set with a single range.
 
   if (!selection.extend && start > end) {
@@ -44528,7 +44528,7 @@ function getActiveElementDeep() {
  */
 
 /**
- * @hasSelectionCapabilities: we get the element types that support selection
+ * @hasSelectionCapabilities: we get the element types that Support selection
  * from https://html.spec.whatwg.org/#do-not-apply, looking at `selectionStart`
  * and `selectionEnd` rows.
  */
@@ -46018,7 +46018,7 @@ _assign(SyntheticEvent.prototype, {
       event.stopPropagation();
     } else if (typeof event.cancelBubble !== 'unknown') {
       // The ChangeEventPlugin registers a "propertychange" event for
-      // IE. This event does not support bubbling or cancelling, and
+      // IE. This event does not Support bubbling or cancelling, and
       // any references to cancelBubble throw "Member not found".  A
       // typeof check of "unknown" circumvents this issue (and is also
       // IE specific).
@@ -46707,7 +46707,7 @@ function getTargetInstForChangeEvent(topLevelType, targetInst) {
 var isInputEventSupported = false;
 
 if (canUseDOM) {
-  // IE9 claims to support the input event but fails to trigger it when
+  // IE9 claims to Support the input event but fails to trigger it when
   // deleting text, so we ignore its input events.
   isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 9);
 }
@@ -46892,7 +46892,7 @@ var modifierKeyToProp = {
   Control: 'ctrlKey',
   Meta: 'metaKey',
   Shift: 'shiftKey'
-}; // Older browsers (Safari <= 10, iOS Safari <= 10.2) do not support
+}; // Older browsers (Safari <= 10, iOS Safari <= 10.2) do not Support
 // getModifierState. If getModifierState is not supported, we map it to a set of
 // modifier keys exposed by the event. In this case, Lock-keys are not supported.
 
@@ -47302,7 +47302,7 @@ var SelectEventPlugin = {
       // sometimes when it hasn't). IE's event fires out of order with respect
       // to key and input events on deletion, so we discard it.
       //
-      // Firefox doesn't support selectionchange, so check selection status
+      // Firefox doesn't Support selectionchange, so check selection status
       // after each key entry. The selection changes after keydown and before
       // keyup, but we check on keydown as well in the case of holding down a
       // key, when multiple keydown events are fired but only one keyup is.
@@ -48540,7 +48540,7 @@ var syncQueue = null;
 var immediateQueueCallbackNode = null;
 var isFlushingSyncQueue = false;
 var initialTimeMs = Scheduler_now(); // If the initial timestamp is reasonably small, use Scheduler's `now` directly.
-// This will be the case for modern browsers that support `performance.now`. In
+// This will be the case for modern browsers that Support `performance.now`. In
 // older browsers, Scheduler falls back to `Date.now`, which returns a Unix
 // timestamp. In that case, subtract the module initialization time to simulate
 // the behavior of performance.now and keep our times small enough to fit
@@ -50610,7 +50610,7 @@ function mountClassInstance(workInProgress, ctor, newProps, renderExpirationTime
   if (typeof getDerivedStateFromProps === 'function') {
     applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
     instance.state = workInProgress.memoizedState;
-  } // In order to support react-lifecycles-compat polyfilled components,
+  } // In order to Support react-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
 
 
@@ -50646,7 +50646,7 @@ function resumeMountClassInstance(workInProgress, ctor, newProps, renderExpirati
   var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
   // ever the previously attempted to render - not the "current". However,
   // during componentDidUpdate we pass the "current" props.
-  // In order to support react-lifecycles-compat polyfilled components,
+  // In order to Support react-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
 
   if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
@@ -50679,7 +50679,7 @@ function resumeMountClassInstance(workInProgress, ctor, newProps, renderExpirati
   var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
 
   if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
+    // In order to Support react-lifecycles-compat polyfilled components,
     // Unsafe lifecycles should not be invoked for components using the new APIs.
     if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
       startPhaseTimer(workInProgress, 'componentWillMount');
@@ -50740,7 +50740,7 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
   var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
   // ever the previously attempted to render - not the "current". However,
   // during componentDidUpdate we pass the "current" props.
-  // In order to support react-lifecycles-compat polyfilled components,
+  // In order to Support react-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
 
   if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
@@ -50781,7 +50781,7 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
   var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
 
   if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
+    // In order to Support react-lifecycles-compat polyfilled components,
     // Unsafe lifecycles should not be invoked for components using the new APIs.
     if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.componentWillUpdate === 'function')) {
       startPhaseTimer(workInProgress, 'componentWillUpdate');
@@ -51540,7 +51540,7 @@ function ChildReconciler(shouldTrackSideEffects) {
     }
 
     {
-      // We don't support rendering Generators because it's a mutation.
+      // We don't Support rendering Generators because it's a mutation.
       // See https://github.com/facebook/react/issues/12995
       if (typeof Symbol === 'function' && // $FlowFixMe Flow doesn't know about toStringTag
       newChildrenIterable[Symbol.toStringTag] === 'Generator') {
@@ -53137,7 +53137,7 @@ function rerenderTransition(config) {
 function dispatchAction(fiber, queue, action) {
   {
     if (typeof arguments[3] === 'function') {
-      error("State updates from the useState() and useReducer() Hooks don't support the " + 'second callback argument. To execute a side effect after ' + 'rendering, declare it in the component body with useEffect().');
+      error("State updates from the useState() and useReducer() Hooks don't Support the " + 'second callback argument. To execute a side effect after ' + 'rendering, declare it in the component body with useEffect().');
     }
   }
 
@@ -55153,7 +55153,7 @@ function validateFunctionComponentInDev(workInProgress, Component) {
       var _componentName2 = getComponentName(Component) || 'Unknown';
 
       if (!didWarnAboutGetDerivedStateOnFunctionComponent[_componentName2]) {
-        error('%s: Function components do not support getDerivedStateFromProps.', _componentName2);
+        error('%s: Function components do not Support getDerivedStateFromProps.', _componentName2);
 
         didWarnAboutGetDerivedStateOnFunctionComponent[_componentName2] = true;
       }
@@ -55163,7 +55163,7 @@ function validateFunctionComponentInDev(workInProgress, Component) {
       var _componentName3 = getComponentName(Component) || 'Unknown';
 
       if (!didWarnAboutContextTypeOnFunctionComponent[_componentName3]) {
-        error('%s: Function components do not support contextType.', _componentName3);
+        error('%s: Function components do not Support contextType.', _componentName3);
 
         didWarnAboutContextTypeOnFunctionComponent[_componentName3] = true;
       }
@@ -57055,7 +57055,7 @@ function logCapturedError(capturedError) {
         componentStack = capturedError.componentStack,
         errorBoundaryName = capturedError.errorBoundaryName,
         errorBoundaryFound = capturedError.errorBoundaryFound,
-        willRetry = capturedError.willRetry; // Browsers support silencing uncaught errors by calling
+        willRetry = capturedError.willRetry; // Browsers Support silencing uncaught errors by calling
     // `preventDefault()` in window `error` handler.
     // We record this information as an expando on the error.
 
@@ -61034,7 +61034,7 @@ function injectInternals(internals) {
   if (!hook.supportsFiber) {
     {
       error('The installed version of React DevTools is too old and will not work ' + 'with the current version of React. Please update React DevTools. ' + 'https://fb.me/react-devtools');
-    } // DevTools exists, even though it doesn't support Fiber.
+    } // DevTools exists, even though it doesn't Support Fiber.
 
 
     return true;
@@ -61301,7 +61301,7 @@ function createWorkInProgress(current, pendingProps) {
       // We intentionally reset, rather than copy, actualDuration & actualStartTime.
       // This prevents time from endlessly accumulating in new commits.
       // This has the downside of resetting values for different priority renders,
-      // But works for yielding (the common case) and should support resuming.
+      // But works for yielding (the common case) and should Support resuming.
       workInProgress.actualDuration = 0;
       workInProgress.actualStartTime = -1;
     }
@@ -62156,7 +62156,7 @@ ReactDOMRoot.prototype.render = ReactDOMBlockingRoot.prototype.render = function
 
   {
     if (typeof arguments[1] === 'function') {
-      error('render(...): does not support the second callback argument. ' + 'To execute a side effect after rendering, declare it in a component body with useEffect().');
+      error('render(...): does not Support the second callback argument. ' + 'To execute a side effect after rendering, declare it in a component body with useEffect().');
     }
 
     var container = root.containerInfo;
@@ -62178,7 +62178,7 @@ ReactDOMRoot.prototype.render = ReactDOMBlockingRoot.prototype.render = function
 ReactDOMRoot.prototype.unmount = ReactDOMBlockingRoot.prototype.unmount = function () {
   {
     if (typeof arguments[0] === 'function') {
-      error('unmount(...): does not support a callback argument. ' + 'To execute a side effect after rendering, declare it in a component body with useEffect().');
+      error('unmount(...): does not Support a callback argument. ' + 'To execute a side effect after rendering, declare it in a component body with useEffect().');
     }
   }
 
@@ -64828,7 +64828,7 @@ function createContext(defaultValue, calculateChangedBits) {
   var context = {
     $$typeof: REACT_CONTEXT_TYPE,
     _calculateChangedBits: calculateChangedBits,
-    // As a workaround to support multiple concurrent renderers, we categorize
+    // As a workaround to Support multiple concurrent renderers, we categorize
     // some renderers as primary and others as secondary. We only expect
     // there to be two concurrent renderers at most: React Native (primary) and
     // Fabric (secondary); React DOM (primary) and React ART (secondary).
@@ -64986,7 +64986,7 @@ function forwardRef(render) {
 
     if (render != null) {
       if (render.defaultProps != null || render.propTypes != null) {
-        error('forwardRef render functions do not support propTypes or defaultProps. ' + 'Did you accidentally pass a React component?');
+        error('forwardRef render functions do not Support propTypes or defaultProps. ' + 'Did you accidentally pass a React component?');
       }
     }
   }
@@ -65968,12 +65968,12 @@ typeof MessageChannel !== 'function') {
 
     if (typeof requestAnimationFrame !== 'function') {
       // Using console['error'] to evade Babel and ESLint
-      console['error']("This browser doesn't support requestAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
+      console['error']("This browser doesn't Support requestAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
     }
 
     if (typeof cancelAnimationFrame !== 'function') {
       // Using console['error'] to evade Babel and ESLint
-      console['error']("This browser doesn't support cancelAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
+      console['error']("This browser doesn't Support cancelAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://fb.me/react-polyfills');
     }
   }
 
@@ -66770,7 +66770,7 @@ if (false) {} else {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -66783,20 +66783,20 @@ if (false) {} else {
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
+/******/
 /******/ 	// the startup function
 /******/ 	// It's empty as some runtime module handles the default behavior
 /******/ 	__webpack_require__.x = x => {};
@@ -66812,7 +66812,7 @@ if (false) {} else {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -66824,12 +66824,12 @@ if (false) {} else {
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -66840,7 +66840,7 @@ if (false) {} else {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -66849,34 +66849,34 @@ if (false) {} else {
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/ 		
+/******/
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// Promise = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0
 /******/ 		};
-/******/ 		
+/******/
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
 /******/ 			["./resources/sass/app.scss"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
-/******/ 		
+/******/
 /******/ 		// no prefetching
-/******/ 		
+/******/
 /******/ 		// no preloaded
-/******/ 		
+/******/
 /******/ 		// no HMR
-/******/ 		
+/******/
 /******/ 		// no HMR manifest
-/******/ 		
+/******/
 /******/ 		var checkDeferredModules = x => {};
-/******/ 		
+/******/
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime, executeModules] = data;
@@ -66900,18 +66900,18 @@ if (false) {} else {
 /******/ 			while(resolves.length) {
 /******/ 				resolves.shift()();
 /******/ 			}
-/******/ 		
+/******/
 /******/ 			// add entry modules from loaded chunk to deferred list
 /******/ 			if(executeModules) deferredModules.push.apply(deferredModules, executeModules);
-/******/ 		
+/******/
 /******/ 			// run deferred modules when all chunks ready
 /******/ 			return checkDeferredModules();
 /******/ 		}
-/******/ 		
+/******/
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 		
+/******/
 /******/ 		function checkDeferredModulesImpl() {
 /******/ 			var result;
 /******/ 			for(var i = 0; i < deferredModules.length; i++) {
@@ -66939,11 +66939,11 @@ if (false) {} else {
 /******/ 			return (checkDeferredModules = checkDeferredModulesImpl)();
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// run startup
 /******/ 	var __webpack_exports__ = __webpack_require__.x();
-/******/ 	
+/******/
 /******/ })()
 ;

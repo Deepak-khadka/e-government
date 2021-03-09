@@ -17,6 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(
+    ['middleware' => ['auth'],
+        'prefix' => 'admin/',
+        'as' => 'admin.',
+        'namespace' => 'Neputer\\AdminController\\'],
+
+    function () {
+           Route::resource('category','CategoryController');
+           Route::get('home',['as'=>'dashboard.index','uses'=>'CategoryController@index']);
+           Route::get('home',['as'=>'slider.index','uses'=>'CategoryController@index']);
+           Route::get('home',['as'=>'profile','uses'=>'CategoryController@index']);
+
+    });
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

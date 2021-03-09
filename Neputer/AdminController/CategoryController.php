@@ -1,9 +1,10 @@
 <?php
 
-namespace Neputer\Category\Controller;
+namespace Neputer\AdminController;
 use Exception;
-use Neputer\Category\Model\Category;
-use App\Http\Controllers\BaseController;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Neputer\Entities\Category;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,89 +14,94 @@ class CategoryController extends BaseController
 {
 
     protected $model;
-
+    public $base_route = 'admin.category';
+    public $panel = 'Category';
     public function __construct()
     {
-        parent::__construct();
         $this->model = new Category();
 
     }
-     /**
-        * Display a listing of the resource.
-        *
-        * @return Application|View
-        */
-    public function index()
-    {
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @param null $type
+     * @return Application|View
+     */
+    public function index($type = null)
+    {
+        return view('admin.category.index',compact('type'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
-        //
+       $panel =  $this->panel;
+       $title = 'check';
+        return view($this->base_route.'.create',compact('panel','title'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return Request
      */
-    public function store(Request $request)
+    public function store(Request $request): Request
     {
-        //
+      return $request;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Category  $id
+     * @param  $id
      * @return Response
      */
-    public function show(Category $id)
+    public function show($id): ?Response
     {
-        //
+       return $id;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Category  $id
+     * @param   $id
      * @return Response
      */
-    public function edit(Category $id)
+    public function edit($id): Response
     {
-        //
+       return $id;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Category $id
+     * @param  $id
      * @return Response
      */
-    public function update(Request $request, Category $id)
-    {
-        //
-    }
+
+//    public function update(Request $request, $id)
+//    {
+//        //
+//    }
 
   /**
       /**
           * Remove the specified resource from storage.
           *
-          * @param Admin $id
+          * @param Category $id
           * @return RedirectResponse
           * @throws Exception
           */
-    public function destroy(Category $id)
-    {
-        $id->delete();
-        return redirect()->back();
-    }
+//    public function destroy(Category $id)
+//    {
+//        $id->delete();
+//        return redirect()->back();
+//    }
 }
