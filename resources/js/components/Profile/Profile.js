@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ProfileDetails from "./partials/ProfileDetails";
+
 import ProfileEditForm from "./partials/ProfileEditForm";
 
 function Profile() {
@@ -98,55 +100,7 @@ function Profile() {
                         </div>
                     </div>
                     <div className="col-md-8">
-                        <div className="card mb-3">
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Full Name</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        Deepak khadka
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Email</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        deepakkhadka@neputer.com
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Phone</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        (986) 8284426
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Mobile</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        (981) 4566338
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Address</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        Siddhanagar Kohalpur, Banke
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                         <ProfileDetails />
                         <div className="mb-8">
                             <ProfileEditForm/>
                         </div>
