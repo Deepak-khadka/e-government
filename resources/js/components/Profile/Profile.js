@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ProfileEditForm from "./partials/ProfileEditForm";
+
 function Profile() {
     return(
         <>
@@ -145,13 +147,14 @@ function Profile() {
                             </div>
                         </div>
 
-                        <div className="card mb-8">
-
+                        <div className="mb-8">
+                            <ProfileEditForm/>
                         </div>
 
                     </div>
                 </div>
             </div>
+
         </>
     );
 }
