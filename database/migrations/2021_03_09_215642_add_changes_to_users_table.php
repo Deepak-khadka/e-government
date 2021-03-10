@@ -14,6 +14,9 @@ class AddChangesToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('security_number')->nullable()->unique();
             $table->string('family_security_number')->nullable();
             $table->date('date_of_birth')->nullable();
