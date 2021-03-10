@@ -4,8 +4,7 @@
         <div class="col-lg-12">
             <div class="ibox ">
 
-                @include('admin.layouts.includes.breadcrumb',
-            ['title'=>'List','panel'=>'Category', 'base'=>'category','category_type' => $type])
+                @include('admin.layouts.includes.breadcrumb',['base'=>'category','title'=>'Category','panel'=>'Category'])
 
                 <div class="ibox-content">
                 <form action="#" id="filter-form">

@@ -17,7 +17,6 @@ class NeputerProviderServiceProvider extends ServiceProvider
     {
         $this->commands(CustomsCommand::class);
         $this->loadRoutesFrom(base_path('Neputer/route.php'));
-        $this->mergeConfigFrom('Neputer/config/neputer.php','neputer');
-
+        $this->mergeConfigFrom(base_path('Neputer/config/neputer.php'),'neputer');
     }
 }

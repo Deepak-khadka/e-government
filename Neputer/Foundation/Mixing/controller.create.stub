@@ -1,6 +1,6 @@
 <?php
 
-namespace Neputer\AdminController;
+namespace Neputer\Controller\Admin;
 use Exception;
 use Neputer\Entities\{{ Model }};
 use Illuminate\Contracts\Foundation\Application;

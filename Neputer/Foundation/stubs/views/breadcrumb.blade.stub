@@ -1,12 +1,13 @@
+
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-6">
-        <h2>{{ ucfirst( $panel)  }} Management</h2>
+        <h2>{{ $panel }} Management</h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-{{--                <a href="{{ route('admin.dashboard.index') }}">Home</a>--}}
+               <a href="{{ route('admin.dashboard.index') }}">Home</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="{{ route('admin.'.$base.'.index') }}">Home</a>
+                <a href="{{ route('admin.'.$base.'.index') }}">{{ $panel }}</a>
             </li>
 
             <li class="breadcrumb-item">
@@ -39,7 +40,7 @@
                 @endif
             @endif
 
-            @if($panel != 'Review' && $panel != 'Homepagesection')
+            @if($panel != 'Review' && $panel != 'Homepage Section')
                 @if (is_active("admin.{$base}.edit") || isset($serviceGallery))
                     <a href="{{ route('admin.'.$base.'.show', $id) }}"
                        class="btn btn-sm btn-success pull-right m-t-n-xs mr-3"><i

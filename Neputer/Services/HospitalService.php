@@ -27,4 +27,9 @@ class HospitalService
         $this->model = $Hospital;
     }
 
+    public function find(Hospital $id)
+    {
+        return $this->model->find($id);
+    }
+
 }
