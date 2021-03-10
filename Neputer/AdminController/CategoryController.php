@@ -2,13 +2,14 @@
 
 namespace Neputer\AdminController;
 use Exception;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Neputer\Entities\Category;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use phpDocumentor\Reflection\Types\Parent_;
 
 class CategoryController extends BaseController
 {
@@ -16,8 +17,10 @@ class CategoryController extends BaseController
     protected $model;
     public $base_route = 'admin.category';
     public $panel = 'Category';
+
     public function __construct()
     {
+        parent::__construct();
         $this->model = new Category();
 
     }
@@ -26,10 +29,11 @@ class CategoryController extends BaseController
      * Display a listing of the resource.
      *
      * @param null $type
-     * @return Application|View
+     * @return Application|Factory|View
      */
     public function index($type = null)
     {
+
         return view('admin.category.index',compact('type'));
     }
 

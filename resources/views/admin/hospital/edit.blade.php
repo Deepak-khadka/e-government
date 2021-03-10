@@ -6,10 +6,11 @@
                 <div class="ibox ">
                     @include('admin.layouts.includes.breadcrumb')
                     <div class="ibox-content">
-                         {!! Form::open(['route' => 'admin.category.store', 'method' => 'post']) !!}
-                            @includeIf('admin.category.includes.form')
-                        {!! Form::close() !!}
-
+                    {!! Form::model($data['hospital'], ['route' => [$base['base_route'].'.update',$data['hospital']->id ],
+                             'method' => 'put']) !!}
+                         {!! Form::hidden('id', $data['hospital']->id) !!}
+                        @includeIf($base['partial'].'.form')
+                     {!! Form::close() !!}
                     </div>
                 </div>
             </div>

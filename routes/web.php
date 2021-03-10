@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,18 +30,9 @@ Route::group(
            Route::get('home',['as'=>'slider.index','uses'=>'CategoryController@index']);
            Route::get('home',['as'=>'profile','uses'=>'CategoryController@index']);
 
+           /* Hospital Web  Path*/
+           Route::resource('hospital','HospitalController');
     });
 
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

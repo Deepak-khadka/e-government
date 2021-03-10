@@ -6,8 +6,8 @@
                 <div class="ibox ">
                     @include('admin.layouts.includes.breadcrumb')
                     <div class="ibox-content">
-                         {!! Form::open(['route' => 'admin.category.store', 'method' => 'post']) !!}
-                            @includeIf('admin.category.includes.form')
+                         {!! Form::open(['route' => $base['base_route'].'.store', 'method' => 'post']) !!}
+                            @includeIf($base['partial'].'.form')
                         {!! Form::close() !!}
 
                     </div>

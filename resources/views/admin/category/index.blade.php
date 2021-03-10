@@ -5,9 +5,7 @@
             <div class="ibox ">
 
                 @include('admin.layouts.includes.breadcrumb',
-            ['title'=>'List','panel'=>'Category', 'base'=>'category','category_type' => $type]
-)
-{{--                @include('flash::message')--}}
+            ['title'=>'List','panel'=>'Category', 'base'=>'category','category_type' => $type])
 
                 <div class="ibox-content">
                 <form action="#" id="filter-form">

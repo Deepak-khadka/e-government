@@ -2,24 +2,24 @@
 
 namespace Neputer\AdminController;
 use Exception;
-use Neputer\Entities\Account;
+use Neputer\Entities\Hospital;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Neputer\Services\AccountService;
+use Neputer\Services\HospitalService;
 
-class AccountController extends BaseController
+class HospitalController extends BaseController
 {
 
-    protected $accountService;
-    protected $view_path = 'admin.account';
-  
-    public function __construct( AccountService $accountService)
+    protected $hospitalService;
+    protected $view_path = 'admin.hospital';
+
+    public function __construct( HospitalService $hospitalService)
     {
-        $this->accountService = $accountService;
+        $this->hospitalService = $hospitalService;
     }
 
      /**
@@ -59,11 +59,11 @@ class AccountController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  Account  $id
+     * @param  Hospital  $id
      * @return Application|Factory|View|Response
      */
 
-    public function show(Account $id)
+    public function show(Hospital $id)
     {
         $data = [];
         $data['row'] = $id;
@@ -73,11 +73,11 @@ class AccountController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Account  $id
+     * @param  Hospital  $id
      * @return Application|Factory|View|Response
      */
 
-    public function edit(Account $id)
+    public function edit(Hospital $id)
     {
         $data = [];
         $data['row'] = $id;
@@ -88,11 +88,11 @@ class AccountController extends BaseController
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Account $id
+     * @param Hospital $id
      * @return Application|Factory|View|Response
      */
 
-    public function update(Request $request, Account $id)
+    public function update(Request $request, Hospital $id)
     {
         //
     }

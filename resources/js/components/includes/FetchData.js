@@ -1,11 +1,9 @@
 import axios from 'axios';
 const url ="http://e-government.bro/api";
-
 const http = axios.create({
     baseURL:url,
     responseType:'json'
 })
-
 const getHeaders =(isSecured)=>{
     const token = sessionStorage.getItem("token")
     let object ={

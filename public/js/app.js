@@ -2578,19 +2578,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ProfileEditForm = function ProfileEditForm() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
-      name = _useState2[0],
-      setName = _useState2[1];
+      phone = _useState2[0],
+      setPhone = _useState2[1]; // const [email,setEmail] =useState('')
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      email = _useState4[0],
-      setEmail = _useState4[1];
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     var formData = {
-      name: name,
-      email: email
+      phone: phone // email: email,
+
     };
     axios__WEBPACK_IMPORTED_MODULE_1___default().post('http://e-government.bro/api/profile', formData, {
       headers: {
@@ -2605,38 +2601,25 @@ var ProfileEditForm = function ProfileEditForm() {
   };
 
   var handleChangeName = function handleChangeName(e) {
-    setName(e.target.value);
-  };
-
-  var handleChangeEmail = function handleChangeEmail(e) {
-    setEmail(e.target.value);
+    setPhone(e.target.value);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "container-fluid",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
       onSubmit: handleSubmit,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "row",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "col-6",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "text",
+            type: "phone",
             className: "form-control",
-            name: "name",
+            name: "phone",
             placeholder: "Enter Full Name",
             onChange: handleChangeName
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "col-6",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "email",
-            className: "form-control",
-            name: "name",
-            placeholder: "Enter Email",
-            onChange: handleChangeEmail
-          })
-        })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         type: "submit",
         value: "Submit",

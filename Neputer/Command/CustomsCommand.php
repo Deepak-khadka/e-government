@@ -60,6 +60,7 @@ class CustomsCommand extends Command
     {
         $controllerString = file_get_contents(base_path('Neputer/Foundation/Mixing/controller.create.stub'));
         $controllerString = str_replace(["{{ Controller }}","{{ Model }}"], ucfirst($class_name),  $controllerString);
+        $controllerString = str_replace(["{{variable}}"], strtolower($class_name),  $controllerString);
         File::put(base_path('Neputer'. DIRECTORY_SEPARATOR .'AdminController' . DIRECTORY_SEPARATOR . ucfirst($class_name) . 'Controller.php'), $controllerString);
         $this->info(ucfirst($class_name) . ' Controller Created .');
     }

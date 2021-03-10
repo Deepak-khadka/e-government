@@ -4,22 +4,45 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Auth\Events\Login;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Neputer\AdminController\BaseController;
+use Neputer\Services\UserServices;
 
 class ProfileController extends BaseController
 {
 
+    /**
+     * @var UserServices
+     */
+    protected $userServices;
 
+    public function __construct(UserServices $userServices)
+    {
+        $this->userServices = $userServices;
+    }
+
+
+    /**
+     * @return JsonResponse
+     */
     public function index()
     {
-        $user = User::where('id',1)->first();
-        return $this->responseOk(new UserResource($user));
+        return $this->responseOk(new UserResource($this->userServices->getActiveUser()));
     }
-    public function store(Request $request)
+
+    /**
+     * @param Request $data
+     * @param $id
+     * @return mixed|void
+     */
+    public function update(Request $data, $id)
     {
-      return $request->header();
+       $user = User::where('id',$id )->update([
+           $data->all()
+       ]);
+       return $this->responseOk(UserResource(new $user));
     }
 
 

@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import axios from "axios";
 const ProfileEditForm = () =>{
 
-    const [name , setName] = useState('')
-    const [email,setEmail] =useState('')
+    const [phone , setPhone] = useState('')
+    // const [email,setEmail] =useState('')
 
     const handleSubmit=(e)=>{
         e.preventDefault();
 
        const formData = {
-           name: name,
-           email: email,
+           phone: phone,
+           // email: email,
        }
 
        axios.post('http://e-government.bro/api/profile', formData , {headers : {'token': 'bB3AfAqQv5tYtaCkkgIuQBuS9pQYN3OycpEEuOhJ'}})
@@ -21,21 +21,19 @@ const ProfileEditForm = () =>{
            .catch((err)=> console.log(err.response));
     }
     const handleChangeName=(e)=>{
-    setName(e.target.value)
+    setPhone(e.target.value)
     }
-    const handleChangeEmail=(e)=>{
-    setEmail(e.target.value)
-    }
+
     return(
         <div className="container-fluid">
                                  <form onSubmit={handleSubmit}>
                                      <div className="row">
                                          <div className="col-6">
-                                             <input type="text" className="form-control" name="name" placeholder="Enter Full Name" onChange={handleChangeName}/>
+                                             <input type="phone" className="form-control" name="phone" placeholder="Enter Full Name" onChange={handleChangeName}/>
                                         </div>
-                                         <div className="col-6">
-                                             <input type="email" className="form-control" name="name" placeholder="Enter Email" onChange={handleChangeEmail}/>
-                                         </div>
+                                         {/*<div className="col-6">*/}
+                                         {/*    <input type="email" className="form-control" name="name" placeholder="Enter Email" onChange={handleChangeEmail}/>*/}
+                                         {/*</div>*/}
                                      </div>
                                      <br/>
                                      <input type="submit" value="Submit" className="btn btn-primary"/>

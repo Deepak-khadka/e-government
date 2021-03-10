@@ -20,7 +20,7 @@ export default class ProfileDetails extends React.Component {
     }
 
     render() {
-        var { isLoaded } = this.state;
+        const {isLoaded} = this.state;
         if(!isLoaded){
             return <div>Loading ..... !</div>
         }else {

@@ -28,7 +28,7 @@ trait CrudTrait
         return $this->model->create( $data );
     }
 
-    public function update( array $data, $model)
+    public function updates(array $data, $model)
     {
         $instance = $model;
         $model->update( $data );

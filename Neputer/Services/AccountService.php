@@ -8,9 +8,9 @@ use Neputer\Entities\Account;
  * Class AccountService
  * @package Neputer\Services
  */
+
 class AccountService
 {
-
     /**
      * The Account instance
      *
