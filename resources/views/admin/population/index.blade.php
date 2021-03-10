@@ -4,7 +4,7 @@
         <div class="col-lg-12">
             <div class="ibox ">
 
-                @include('admin.layouts.includes.breadcrumb',['base'=>'category','title'=>'category','panel'=>'category'])
+                @include('admin.layouts.includes.breadcrumb',['base'=>'population','title'=>'population','panel'=>'population'])
               {{--     @include('flash::message') --}}
 
                 <div class="ibox-content">
@@ -59,7 +59,7 @@
                     </div>
                 </form>
 
-                {{--  @include('admin.category.includes.table') --}}
+                {{--  @include('admin.population.includes.table') --}}
 
                 </div>
             </div>

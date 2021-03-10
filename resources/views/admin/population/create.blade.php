@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox ">
-                    @include('admin.layouts.includes.breadcrumb',['base'=>'category','title'=>'category','panel'=>'category'])
+                    @include('admin.layouts.includes.breadcrumb',['base'=>'population','title'=>'population','panel'=>'population'])
                     <div class="ibox-content">
-                         {!! Form::open(['route' => 'admin.category.store', 'method' => 'post']) !!}
-                            @includeIf('admin.category.includes.form')
+                         {!! Form::open(['route' => 'admin.population.store', 'method' => 'post']) !!}
+                            @includeIf('admin.population.includes.form')
                         {!! Form::close() !!}
 
                     </div>

@@ -30,12 +30,16 @@
                     <span class="nav-label">Section</span>
                     <span class="fa arrow"></span>
                 </a>
-                    <ul class="nav nav-second-level">
+                    <ul class="nav nav-second-level {{Request::is('admin/hospital*'|| Request::is('admin/category*'))
+                       ?'class=collapse in':'collapse'}}">
                         <li {{Request::is('admin/hospital')?'class=active':''}}>
                             <a href="{{ route('admin.hospital.index') }}"><span class="nav-label">Hospital</span> </a>
                         </li>
-                        <li ><a href="">
-                                <i class="fa fa-user"></i>Publisher</a>
+                        <li {{Request::is('admin/category')?'class=active':''}}>
+                            <a href="{{ route('admin.category.index') }}"><span class="nav-label">Category</span> </a>
+                        </li>
+                        <li {{Request::is('admin/population')?'class=active':''}}>
+                            <a href="{{ route('admin.population.index') }}"><span class="nav-label">Population</span> </a>
                         </li>
                     </ul>
                 </li>

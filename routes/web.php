@@ -22,7 +22,7 @@ Route::group(
     ['middleware' => ['auth'],
         'prefix' => 'admin/',
         'as' => 'admin.',
-        'namespace' => 'Neputer\\AdminController\\'],
+        'namespace' => 'Neputer\\Controller\\Admin\\'],
 
     function () {
            Route::resource('category','CategoryController');
@@ -32,6 +32,9 @@ Route::group(
 
            /* Hospital Web  Path*/
            Route::resource('hospital','HospitalController');
+
+           /* User Data Web  Path*/
+           Route::resource('population','PopulationController');
     });
 
 
