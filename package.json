@@ -29,6 +29,8 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "intl-tel-input": "^17.0.12",
+        "nepali-date-picker": "^2.0.1",
         "react-router-dom": "^5.2.0"
     }
 }

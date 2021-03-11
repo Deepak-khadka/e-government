@@ -34,7 +34,7 @@
     <label class="col-sm-1 col-form-label is_required">Date Of Birth </label>
 
     <div class="col-sm-3">
-        {{ Form::date('date_of_birth',null , ['class'=>'form-control', 'required']) }}
+        {{ Form::date('date_of_birth',null , ['class'=>'form-control datepicker','id'=>'date_picker', 'required']) }}
 
         @if($errors->has('date_of_birth'))
             <label for="date_of_birth" class="has-error"> {{ $errors->first('date_of_birth') }}</label>
@@ -44,7 +44,7 @@
     <label class="col-sm-1 col-form-label is_required">Age </label>
 
     <div class="col-sm-3">
-        {{ Form::number('age',null , ['class'=>'form-control', 'required']) }}
+        {{ Form::number('age',null , ['class'=>'form-control', 'required','id'=>'age']) }}
 
         @if($errors->has('age'))
             <label for="age" class="has-error"> {{ $errors->first('age') }}</label>
@@ -124,10 +124,10 @@
         @endif
     </div>
 
-    <label class="col-sm-1 col-form-label">Phone </label>
+    <label class="col-sm-1 col-form-label is_required">Phone </label>
 
     <div class="col-sm-3">
-        {{ Form::text('phone', null , ['class'=>'form-control']) }}
+        {{ Form::text('phone', '+977' , ['class'=>'form-control required']) }}
 
         @if($errors->has('phone'))
             <label for="phone" class="has-error"> {{ $errors->first('phone') }}</label>
@@ -140,7 +140,7 @@
     <label class="col-sm-1 col-form-label is_required">Marital Status </label>
 
     <div class="col-sm-3">
-        {{ Form::select('marital_status',['null'=>'Choose Status','0'=>'Married','1'=>'Un-Married'],null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('marital_status',[null=>'Choose Status','0'=>'Married','1'=>'Un-Married'],null , ['class'=>'form-control', 'required']) }}
 
         @if($errors->has('marital_status'))
             <label for="marital_status" class="has-error"> {{ $errors->first('marital_status') }}</label>
@@ -149,7 +149,7 @@
     <label class="col-sm-1 col-form-label is_required">Education </label>
 
     <div class="col-sm-3">
-        {{ Form::select('education_level',['null'=>'Choose Education Status','primary'=>'Primary Education','lower'=>'Lower Secondary Education','secondary'=>'Secondary Education','senior_secondary'=>'Senior Secondary Education (HSEB)','bachelor'=>'Bachelor','master'=>'Master','phd'=>'PHD'],null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('education_level',[null=>'Choose Education Status','primary'=>'Primary Education','lower'=>'Lower Secondary Education','secondary'=>'Secondary Education','senior_secondary'=>'Senior Secondary Education (HSEB)','bachelor'=>'Bachelor','master'=>'Master','phd'=>'PHD'],null , ['class'=>'form-control', 'required']) }}
 
         @if($errors->has('education_level'))
             <label for="education_level" class="has-error"> {{ $errors->first('education_level') }}</label>
@@ -158,7 +158,7 @@
     <label class="col-sm-1 col-form-label is_required">Service </label>
 
     <div class="col-sm-3">
-        {{ Form::select('service',['null'=>'Choose Job Status','unemployment'=>'Unemployment','employment'=>'Employment'],null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('service',[null=>'Choose Job Status','unemployment'=>'Unemployment','employment'=>'Employment'],null , ['class'=>'form-control', 'required']) }}
 
         @if($errors->has('service'))
             <label for="service" class="has-error"> {{ $errors->first('service') }}</label>
@@ -180,36 +180,49 @@
         @endif
     </div>
 
-    <label class="col-sm-1 col-form-label ">Citizen No </label>
+    <div id="citizen_number" class="col-sm-4">
+        <div class="row">
+            <label class="col-sm-3 col-form-label ">Citizen No </label>
 
-    <div class="col-sm-3">
-        {{ Form::text('citizenship_number',null , ['class'=>'form-control']) }}
+            <div class="col-sm-9" id="citizen_number">
+                {{ Form::text('citizenship_number',null , ['class'=>'form-control']) }}
 
-        @if($errors->has('citizenship_number'))
-            <label for="citizenship_number" class="has-error"> {{ $errors->first('citizenship_number') }}</label>
-        @endif
+                @if($errors->has('citizenship_number'))
+                    <label for="citizenship_number" class="has-error"> {{ $errors->first('citizenship_number') }}</label>
+                @endif
+            </div>
+        </div>
+
     </div>
 
-    <label class="col-sm-1 col-form-label">Security No. </label>
 
-    <div class="col-sm-3">
+     {{ Form::label('Security No.',null ,['class'=>'col-sm-1 col-form-label']) }}
+
+     <div class="col-sm-3">
         {{ Form::text('security_number', null , ['class'=>'form-control']) }}
 
         @if($errors->has('security_number'))
             <label for="security_number" class="has-error"> {{ $errors->first('security_number') }}</label>
         @endif
-    </div>
+     </div>
 
 </div>
 
-<div class="form-group row"><label class="col-sm-2 col-form-label">Status</label>
-    <div class="col-sm-6"><select class="form-control m-b" name="status">
-            <option value="1">Active</option>
-            <option value="0">Inactive</option>
-        </select>
-    </div>
-</div>
+<div class="form-group row">
+    <div class="col-sm-6">
+        {!! Form::label('file', 'Image', ['class' => 'col-sm-1 control-label no-padding-right is_required']); !!}
+        <div class="col-sm-10">
 
+            <input type="file" class="dropify form-control col-sm-10 required" name="file">
+        </div>
+        @if($errors->has('file'))
+            <label class="has-error" for="file">{{ $errors->first('file') }}</label>
+        @endif
+
+    </div>
+
+
+</div>
 
 <div class="form-group row">
     <div class="col-sm-4 col-sm-offset-2">

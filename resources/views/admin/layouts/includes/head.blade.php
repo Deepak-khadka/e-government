@@ -16,7 +16,7 @@
 
     <!-- Select2 -->
     <link href="{{asset('assets/admin/css/plugins/select2/select2.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/admin/bootstrap3-editable-1.5.1/bootstrap3-editable/css/bootstrap-editable.css')}}" rel="stylesheet">
+{{--    <link href="{{asset('assets/admin/bootstrap3-editable-1.5.1/bootstrap3-editable/css/bootstrap-editable.css')}}" rel="stylesheet">--}}
     <style>
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {

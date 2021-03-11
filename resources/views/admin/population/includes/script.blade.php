@@ -1,30 +1,20 @@
 <script>
-    $(function () {
+    $(function (){
 
-        $(document).on('submit', '#filter-form', function () {
+        const datePicker = $('#date_picker');
+         datePicker.on('change', function () {
+            const value = datePicker.val();
+            const today = new Date();
+            const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var age = parseInt(date) - parseInt(value);
 
-            var data = $(this).find(':input').filter(function () {
-                return !!this.value;
-            }).serialize();
+            $('#age').val(age);
 
-            var url = '{{ route($base['base_route'].'.index') }}';
-            url = url + '?' + data;
-            window.location.href = url;
-
-            return false;
+            if(age < 16){
+                $('#citizen_number').hide("slow");
+            }
         });
+    })
 
 
-         /** delete row */
-           $(document).on('click', '#delete-row', function () {
-              var $this = $(this);
-               bootbox.confirm("Are you sure want to delete?", function(result) {
-                   if(result) {
-                       $this.closest('form').submit();
-                   }
-               });
-               return false;
-            });
-
-    });
 </script>

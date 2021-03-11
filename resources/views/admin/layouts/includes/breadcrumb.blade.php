@@ -51,7 +51,7 @@
 
 </div>
 
-@if(app()->environment('local') && $errors->any())
-    <br>
-    <pre style="color: red;">{!! implode('', $errors->all('<code>:message</code> <br>')) !!}</pre>
-@endif
+{{--@if(app()->environment('local') && $errors->any())--}}
+{{--    <br>--}}
+{{--    <pre style="color: red;">{!! implode('', $errors->all('<code>:message</code> <br>')) !!}</pre>--}}
+{{--@endif--}}

@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Neputer\Foundation\Request\Population\PopulationFormValidation;
 use Neputer\Services\PopulationService;
 
 
@@ -77,13 +78,13 @@ class PopulationController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param PopulationFormValidation $request
      * @return Application|Factory|View|Response
      */
 
-    public function store(Request $request)
+    public function store(PopulationFormValidation $request)
     {
-       dd($request->all());
+       dd($request->validated());
     }
 
     /**
