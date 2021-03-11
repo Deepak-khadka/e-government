@@ -82,9 +82,9 @@ class PopulationController extends BaseController
      * @return Application|Factory|View|Response
      */
 
-    public function store(PopulationFormValidation $request)
+    public function store(Request $request)
     {
-       dd($request->validated());
+       dd($request->all());
     }
 
     /**

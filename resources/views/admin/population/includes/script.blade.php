@@ -12,6 +12,10 @@
 
             if(age < 16){
                 $('#citizen_number').hide("slow");
+                $('#citizenship_number_input').val('');
+            }
+            if(age > 16){
+                $('#citizen_number').show("slow");
             }
         });
     })

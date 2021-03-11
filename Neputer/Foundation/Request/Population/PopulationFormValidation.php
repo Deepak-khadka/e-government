@@ -35,7 +35,8 @@ class PopulationFormValidation extends FormRequest
             'service' => 'required',
             'present_location' => 'required',
             'security_number' => 'required',
-            'file' => 'required'
+            'citizenship_number'=> 'max:15',
+            'file' => 'required',
         ];
     }
 

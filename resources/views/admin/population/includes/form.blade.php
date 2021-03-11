@@ -185,7 +185,7 @@
             <label class="col-sm-3 col-form-label ">Citizen No </label>
 
             <div class="col-sm-9" id="citizen_number">
-                {{ Form::text('citizenship_number',null , ['class'=>'form-control']) }}
+                {{ Form::text('citizenship_number',null , ['class'=>'form-control','id'=>'citizenship_number_input']) }}
 
                 @if($errors->has('citizenship_number'))
                     <label for="citizenship_number" class="has-error"> {{ $errors->first('citizenship_number') }}</label>
