@@ -4,8 +4,8 @@
         <div class="col-lg-12">
             <div class="ibox ">
 
-                @include('admin.layouts.includes.breadcrumb')
-                @include('flash::message')
+                @include('admin.layouts.includes.breadcrumb',['base'=>'{base}','title'=>'{base}','panel'=>'{base}'])
+              {{--     @include('flash::message') --}}
 
                 <div class="ibox-content">
                 <form action="#" id="filter-form">
@@ -59,7 +59,7 @@
                     </div>
                 </form>
 
-                @include($base['partial'].'.table')
+                {{--  @include('admin.{base}.includes.table') --}}
 
                 </div>
             </div>
@@ -69,5 +69,5 @@
     @endsection
 @push('js')
     <script src="{{ asset('assets/admin/js/bootbox.min.js') }}"></script>
-    @include('admin.common.scripts')
+  {{--    @include('admin.common.scripts')--}}
 @endpush

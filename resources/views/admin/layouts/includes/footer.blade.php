@@ -24,21 +24,21 @@
 <script src="{{asset('assets/admin/js/demo/sparkline-demo.js')}}"></script>
 <script src="{{asset('assets/admin/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 
-<script src="{{asset('assets/admin/bootstrap3-editable-1.5.1/bootstrap3-editable/js/bootstrap-editable.js')}}"></script>
+{{--<script src="{{asset('assets/admin/bootstrap3-editable-1.5.1/bootstrap3-editable/js/bootstrap-editable.js')}}"></script>--}}
 
 
 <!-- DataTables -->
-<script src="{{asset('assets/admin/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js')}}"></script>
+{{--<script src="{{asset('assets/admin/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js')}}"></script>--}}
 
 
-<script>
-    $(document).ready(function () {
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-green',
-        });
-    });
-</script>
+{{--<script>--}}
+{{--    $(document).ready(function () {--}}
+{{--        $('.i-checks').iCheck({--}}
+{{--            checkboxClass: 'icheckbox_square-green',--}}
+{{--            radioClass: 'iradio_square-green',--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 
 
 @stack('js')

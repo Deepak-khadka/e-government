@@ -1,19 +1,12 @@
-@php
-    $base = strtolower(ucwords(preg_replace('/\s+/', '-',$panel)));
-    $panel = ucwords(str_replace('-', ' ',  $panel));
-    $title = ucfirst($title);
-@endphp
-
-{{--@dd(strtolower(ucwords(preg_replace('/\s+/', '_', $journalName))))--}}
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-6">
-        <h2>{{ $panel }} Management</h2>
+        <h2>{{ ucfirst( $panel)  }} Management</h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
 {{--                <a href="{{ route('admin.dashboard.index') }}">Home</a>--}}
             </li>
             <li class="breadcrumb-item active">
-                <a href="{{ route('admin.'.$base.'.index') }}">{{ $panel }}</a>
+                <a href="{{ route('admin.'.$base.'.index') }}">Home</a>
             </li>
 
             <li class="breadcrumb-item">
@@ -23,7 +16,7 @@
     </div>
     <div class="col-lg-6" style="padding-top: 30px;">
         <div class="btn-toolbar pull-right">
-            @if($panel != 'Review' && $panel != 'Homepagesection' && $panel != 'Booking')
+            @if($panel != 'Review' && $panel != 'Homepage Section' && $panel != 'Booking')
                 @if (is_active("admin.{$base}.index") || is_active("admin.{$base}.show") || is_active("admin.{$base}.edit"))
                     <a href="{{ route('admin.'.$base.'.create') }}"
                        class="btn btn-sm btn-success pull-right m-t-n-xs mr-3">
@@ -58,7 +51,7 @@
 
 </div>
 
-@if(app()->environment('local') && $errors->any())
-    <br>
-    <pre style="color: red;">{!! implode('', $errors->all('<code>:message</code> <br>')) !!}</pre>
-@endif
+{{--@if(app()->environment('local') && $errors->any())--}}
+{{--    <br>--}}
+{{--    <pre style="color: red;">{!! implode('', $errors->all('<code>:message</code> <br>')) !!}</pre>--}}
+{{--@endif--}}

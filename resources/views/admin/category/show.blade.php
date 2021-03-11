@@ -4,7 +4,8 @@
         <div class="col-lg-12">
             <div class="ibox ">
 
-                @include('admin.layouts.includes.breadcrumb')
+              @include('admin.layouts.includes.breadcrumb',['base'=>'category','title'=>'category','panel'=>'category'])
+
                 <div class="ibox-content">
 
                 </div>

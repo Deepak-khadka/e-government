@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox ">
-                    @include('admin.layouts.includes.breadcrumb')
+                    @include('admin.layouts.includes.breadcrumb',['base'=>'category','title'=>'category','panel'=>'category'])
                     <div class="ibox-content">
                     {!! Form::model($data['category'], ['route' => [$base['base_route'].'.update',$data['category']->id ],
                              'method' => 'put']) !!}
