@@ -1,18 +1,24 @@
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered"  id="population-table">
         <thead>
         <tr>
 
-            <th><input type="checkbox"   class="i-checks" name="input[]"></th>
-            <th>Action</th>
+            <th>
+                <label>
+                    <input type="checkbox"   class="i-checks" name="input[]">
+                </label>
+            </th>
+            <th>Name</th>
+            <th>Email</th>
 
 
         </tr>
         </thead>
-        <tbody>
+        <tbody id="table-body">
 
             <tr>
-                <td><input type="checkbox"   class="i-checks" name="input[]"></td>
+                <td></td>
+                <td></td>
                 <td></td>
             </tr>
 

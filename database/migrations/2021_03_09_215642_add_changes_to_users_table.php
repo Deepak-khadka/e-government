@@ -23,8 +23,10 @@ class AddChangesToUsersTable extends Migration
             $table->string('citizenship_number')->nullable();
             $table->string('state')->nullable();
             $table->string('zone')->nullable();
+            $table->integer('age')->nullable();
+            $table->string('sex')->nullable();
             $table->string('district')->nullable();
-            $table->integer('ward_number')->nullable();
+            $table->integer('ward_no')->nullable();
             $table->string('tole')->nullable();
             $table->string('phone')->nullable();
             $table->string('image')->nullable();

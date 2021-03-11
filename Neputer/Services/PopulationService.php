@@ -59,8 +59,13 @@ class PopulationService
 
     public function create(array $all)
     {
-        dd($all);
          $this->model->create($all);
+    }
+
+    public function getAllUsers()
+    {
+        return  $this->model->where('role','users')->get();
+
     }
 
 

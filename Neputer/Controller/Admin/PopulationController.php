@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Neputer\Foundation\Request\Population\PopulationFormValidation;
 use Neputer\Services\PopulationService;
+use Yajra\DataTables\DataTables;
 
 
 class PopulationController extends BaseController
@@ -35,16 +36,32 @@ class PopulationController extends BaseController
         $this->image_dimensions = config('neputer.image-dimensions.population');
     }
 
-     /**
+    /**
      * Display a listing of the resource.
      * @param Request $request
      * @return Application|Factory|View|Response
+     * @throws Exception
      */
 
     public function index(Request $request)
     {
-        $data = [];
-        $data['rows'] = $this->populationService->getUsers($request);
+
+        $data = $this->populationService->getAllUsers();
+        if($request->ajax())
+        {
+            return DataTables::of($data)
+                ->editColumn('id', function ($population) {
+                    return '<input type="checkbox" value=' . $population->id . ' name="chkData[]">';
+                })
+                ->addColumn('name', function ($population) {
+                    return $population->name;
+                })
+                ->addColumn('email', function ($population) {
+                    return $population->email;
+                })
+                ->rawColumns(['id','name','email'])
+                ->make(true);
+        }
         return view($this->view_path . '.index', compact('data'));
     }
 
@@ -79,7 +96,7 @@ class PopulationController extends BaseController
         ]);
         $this->populationService->create($request->all());
         $request->session()->flash('success',$this->panel.'Created Successfully');
-        return redirect($this->view_path.'.index');
+        return redirect('admin/population');
     }
 
     /**

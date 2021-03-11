@@ -13,18 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/profile', function (){return view('profile');});
+
+/* Route For HomePage*/
+Route::group(
+
+    ['namespace' => 'Neputer\\Controller\\Frontend\\'],
+
+    function () {
+
+        Route::get('/',  ['as'=>'user.dashboard', 'uses'=>'HomeController@index']);
+        Route::get('/profile', function (){return view('profile');});
+
+
+    });
 
 Route::group(
-    ['middleware' => ['auth'],
+    ['middleware' => ['auth','verify.admin'],
         'prefix' => 'admin/',
         'as' => 'admin.',
         'namespace' => 'Neputer\\Controller\\Admin\\'],
 
     function () {
+
            Route::resource('category','CategoryController');
            Route::get('/dashboard',['as'=>'dashboard.index','uses'=>'PopulationController@index']);
 

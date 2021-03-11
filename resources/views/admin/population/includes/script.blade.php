@@ -1,3 +1,4 @@
+
 <script>
     $(function (){
 
@@ -18,7 +19,26 @@
                 $('#citizen_number').show("slow");
             }
         });
+
     })
 
+    $(function (){
+        $('#population-table').DataTable({
+            language   : {search : ""},
+            bInfo      : false,
+            processing : false,
+            serverSide : true,
+            lengthMenu : [5, 10, 50, 100],
+            ajax: {
+                url : '{{route('admin.population.index')}}',
+                type: 'get',
+            },
+            columns: [
+                {data: 'id', name: 'id', orderable: false},
+                {data: 'name', name: 'name', orderable: true},
+                {data: 'email', name: 'email', orderable: true},
+            ],
+        })
+    })
 
 </script>

@@ -1,10 +1,15 @@
 @extends('admin.layouts.master')
+@push('css')
+    <link rel="stylesheet" href="{{ asset('assets/admin/DataTables/datatables.css') }}">
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox ">
 
                 @include('admin.layouts.includes.breadcrumb',['base'=>'population','title'=>'population','panel'=>'population'])
+
               {{--     @include('flash::message') --}}
 
                 <div class="ibox-content">
@@ -59,7 +64,7 @@
                     </div>
                 </form>
 
-                {{--  @include('admin.population.includes.table') --}}
+                  @include('admin.population.includes.table')
 
                 </div>
             </div>
@@ -68,6 +73,8 @@
     </div>
     @endsection
 @push('js')
+
     <script src="{{ asset('assets/admin/js/bootbox.min.js') }}"></script>
-  {{--    @include('admin.common.scripts')--}}
+    <script src="{{ asset('assets/admin/DataTables/datatables.js') }}"></script>
+      @include('admin.population.includes.script')
 @endpush
