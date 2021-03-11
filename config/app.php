@@ -175,7 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Neputer\ServiceProvider\NeputerProviderServiceProvider::class,
-        \Neputer\ServiceProvider\ComposerServiceProvider::class
 
     ],
 

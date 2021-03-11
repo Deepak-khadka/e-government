@@ -31,6 +31,7 @@ class AddChangesToUsersTable extends Migration
             $table->boolean('marital_status')->default(0);
             $table->string('education_level')->nullable();
             $table->string('service')->nullable();
+            $table->string('role')->nullable();
             $table->string('present_location')->nullable();
             $table->boolean('status')->default(0)->comment("if value is 0 then user Can't login ");
         });

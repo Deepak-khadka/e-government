@@ -18,12 +18,21 @@ class PopulationController extends BaseController
 
     protected $populationService;
     protected $view_path = 'admin.population';
-    protected $model;
+    protected $panel = 'Population';
+    protected $image_name = null;
+    protected $folder;
+    protected $folder_path;
+    protected $image_dimensions;
 
     public function __construct( PopulationService $populationService)
     {
         $this->populationService = $populationService;
-        $this->model = new User();
+        $this->folder = config('neputer.assets.panel_image_folders.population');
+        if(!file_exists(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder))){
+             mkdir(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder));
+        }
+        $this->folder_path = public_path('assets/admin/images' . DIRECTORY_SEPARATOR . $this->folder);
+        $this->image_dimensions = config('neputer.image-dimensions.population');
     }
 
      /**
@@ -34,34 +43,9 @@ class PopulationController extends BaseController
 
     public function index(Request $request)
     {
-       $data = [];
-         $data['rows'] = $this->model->
-            where(function ($query) use ($request){
-
-                if($request->has('filter_name') && $request->get('filter_name')){
-                    $query->where('population.name','like','%'.$request->get('filter_name').'%');
-                }
-
-                if($request->has('filter_email') && $request->get('filter_email')){
-                    $query->where('population.email', 'like', '%'. $request->get('filter_email'). '%');
-                }
-
-                if($request->has('filter_message') && $request->get('filter_message')){
-                    $query->where('population.message', 'like', '%'.$request->get('filter_message').'%');
-                }
-
-                if($request->has('filter_created_at') && $request->get('filter_created_at')){
-                    $query->where('population.created_at', 'like', '%'.$request->get('filter_created_at').'%');
-                }
-
-               if ($request->has('filter_status') && $request->get('filter_status') && $request->get('filter_status') !== 'all') {
-                   $query->where('population.status', $request->get('filter_status') == 'seen' ? 1 : 0);
-               }
-
-           })->latest()
-           ->paginate(10);
-
-      return view($this->view_path.'.index',compact('data'));
+        $data = [];
+        $data['rows'] = $this->populationService->getUsers($request);
+        return view($this->view_path . '.index', compact('data'));
     }
 
     /**
@@ -82,9 +66,20 @@ class PopulationController extends BaseController
      * @return Application|Factory|View|Response
      */
 
-    public function store(Request $request)
+    public function store(PopulationFormValidation $request)
     {
-       dd($request->all());
+       $this->_uploadImage($request->file);
+
+        $request->merge([
+            'name'=>$request->get('first_name').' '.$request->get('middle_name').' '.$request->get('last_name'),
+            'password'=>bcrypt($request->get('first_name').'@123'),
+            'email'=>$request->get('first_name').$request->get('last_name').'@gmail.com',
+            'image'=>$this->image_name,
+            'role'=>'users'
+        ]);
+        $this->populationService->create($request->all());
+        $request->session()->flash('success',$this->panel.'Created Successfully');
+        return redirect($this->view_path.'.index');
     }
 
     /**

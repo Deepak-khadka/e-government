@@ -17,11 +17,18 @@ class {{ Controller }}Controller extends BaseController
     protected ${{variable}}Service;
     protected $view_path = 'admin.{{variable}}';
     protected $model;
+    protected $image_name = null;
+    protected $folder;
+    protected $folder_path;
+    protected $image_dimensions;
+    protected $panel = '{{ Controller }}';
 
     public function __construct( {{ Controller }}Service ${{variable}}Service)
     {
         $this->{{variable}}Service = ${{variable}}Service;
-        $this->model = new {{ Model }}();
+        if(!file_exists(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder))){
+                     mkdir(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder));
+         }
     }
 
      /**
@@ -33,31 +40,7 @@ class {{ Controller }}Controller extends BaseController
     public function index(Request $request)
     {
        $data = [];
-         $data['rows'] = $this->model->
-            where(function ($query) use ($request){
-
-                if($request->has('filter_name') && $request->get('filter_name')){
-                    $query->where('{{variable}}.name','like','%'.$request->get('filter_name').'%');
-                }
-
-                if($request->has('filter_email') && $request->get('filter_email')){
-                    $query->where('{{variable}}.email', 'like', '%'. $request->get('filter_email'). '%');
-                }
-
-                if($request->has('filter_message') && $request->get('filter_message')){
-                    $query->where('{{variable}}.message', 'like', '%'.$request->get('filter_message').'%');
-                }
-
-                if($request->has('filter_created_at') && $request->get('filter_created_at')){
-                    $query->where('{{variable}}.created_at', 'like', '%'.$request->get('filter_created_at').'%');
-                }
-
-               if ($request->has('filter_status') && $request->get('filter_status') && $request->get('filter_status') !== 'all') {
-                   $query->where('{{variable}}.status', $request->get('filter_status') == 'seen' ? 1 : 0);
-               }
-
-           })->latest()
-           ->paginate(10);
+       $data['rows'] = $this->{{variable}}Service->getAll{{variable}}($request);
 
       return view($this->view_path.'.index',compact('data'));
     }

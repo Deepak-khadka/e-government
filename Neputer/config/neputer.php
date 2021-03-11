@@ -27,5 +27,19 @@ return [
                 'icon' => 'fa-eye'
             ]
         ]
-    ]
+    ],
+
+    'assets' => [
+        'panel_image_folders' => [
+            'population'=> 'population',
+        ],
+    ],
+
+    'image-dimensions' => [
+        'population' => [
+            ['width' => 350, 'height' =>350],
+            ['width' => 600, 'height' =>600],
+        ],
+    ],
+
 ];

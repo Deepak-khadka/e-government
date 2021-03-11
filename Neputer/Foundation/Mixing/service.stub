@@ -27,4 +27,32 @@ class {CLASS_NAME}Service
         $this->model = ${VAR_CLASS_NAME};
     }
 
+     public function getAll{VAR_CLASS_NAME}()
+     {
+       return  $this->model->where(function ($query) use ($request){
+
+                  if($request->has('filter_name') && $request->get('filter_name')){
+                      $query->where('{VAR_CLASS_NAME}.name','like','%'.$request->get('filter_name').'%');
+                  }
+
+                  if($request->has('filter_email') && $request->get('filter_email')){
+                      $query->where('{VAR_CLASS_NAME}.email', 'like', '%'. $request->get('filter_email'). '%');
+                  }
+
+                  if($request->has('filter_message') && $request->get('filter_message')){
+                      $query->where('{VAR_CLASS_NAME}.message', 'like', '%'.$request->get('filter_message').'%');
+                  }
+
+                  if($request->has('filter_created_at') && $request->get('filter_created_at')){
+                      $query->where('{VAR_CLASS_NAME}.created_at', 'like', '%'.$request->get('filter_created_at').'%');
+                  }
+
+                  if ($request->has('filter_status') && $request->get('filter_status') && $request->get('filter_status') !== 'all') {
+                      $query->where('{VAR_CLASS_NAME}.status', $request->get('filter_status') == 'seen' ? 1 : 0);
+                  }
+
+              })->latest()
+                  ->paginate(10);
+     }
+
 }

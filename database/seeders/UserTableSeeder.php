@@ -18,6 +18,7 @@ class UserTableSeeder extends Seeder
             'name' => 'super_admin',
             'email' => 'root@neputer.com',
             'password' => bcrypt('secret'),
+            'role'=>'super_admin',
             'created_at' => now(),
             'updated_at' => now()
         ]);

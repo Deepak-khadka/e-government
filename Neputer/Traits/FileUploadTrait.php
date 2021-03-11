@@ -12,6 +12,7 @@ trait FileUploadTrait
 
     public function _uploadImage($image , $request_for = 'store', $image_name = null)
     {
+
       $this->image_name = $image_name;
 
       //If image exist, file upload image

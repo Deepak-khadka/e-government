@@ -26,8 +26,8 @@ Route::group(
 
     function () {
            Route::resource('category','CategoryController');
-           Route::get('home',['as'=>'dashboard.index','uses'=>'CategoryController@index']);
-           Route::get('home',['as'=>'slider.index','uses'=>'CategoryController@index']);
+           Route::get('/dashboard',['as'=>'dashboard.index','uses'=>'PopulationController@index']);
+
            Route::get('home',['as'=>'profile','uses'=>'CategoryController@index']);
 
            /* Hospital Web  Path*/
