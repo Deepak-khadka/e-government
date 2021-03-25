@@ -2,53 +2,53 @@
 
 namespace Neputer\Services;
 
-use Neputer\Entities\{CLASS_NAME};
+use Neputer\Entities\Demo;
 use Illuminate\Http\Request;
 /**
- * Class {CLASS_NAME}Service
+ * Class DemoService
  * @package Neputer\Services
  */
-class {CLASS_NAME}Service
+class DemoService
 {
 
     /**
-     * The {CLASS_NAME} instance
+     * The Demo instance
      *
      * @var $model
      */
     protected $model;
 
     /**
-     * {CLASS_NAME}Service constructor.
-     * @param {CLASS_NAME} ${VAR_CLASS_NAME}
+     * DemoService constructor.
+     * @param Demo $Demo
      */
-    public function __construct({CLASS_NAME} ${VAR_CLASS_NAME})
+    public function __construct(Demo $Demo)
     {
-        $this->model = ${VAR_CLASS_NAME};
+        $this->model = $Demo;
     }
 
-     public function getAll{VAR_CLASS_NAME}(Request $request)
+     public function getAllDemo(Request $request)
      {
        return  $this->model->where(function ($query) use ($request){
 
                   if($request->has('filter_name') && $request->get('filter_name')){
-                      $query->where('{VAR_CLASS_NAME}.name','like','%'.$request->get('filter_name').'%');
+                      $query->where('Demo.name','like','%'.$request->get('filter_name').'%');
                   }
 
                   if($request->has('filter_email') && $request->get('filter_email')){
-                      $query->where('{VAR_CLASS_NAME}.email', 'like', '%'. $request->get('filter_email'). '%');
+                      $query->where('Demo.email', 'like', '%'. $request->get('filter_email'). '%');
                   }
 
                   if($request->has('filter_message') && $request->get('filter_message')){
-                      $query->where('{VAR_CLASS_NAME}.message', 'like', '%'.$request->get('filter_message').'%');
+                      $query->where('Demo.message', 'like', '%'.$request->get('filter_message').'%');
                   }
 
                   if($request->has('filter_created_at') && $request->get('filter_created_at')){
-                      $query->where('{VAR_CLASS_NAME}.created_at', 'like', '%'.$request->get('filter_created_at').'%');
+                      $query->where('Demo.created_at', 'like', '%'.$request->get('filter_created_at').'%');
                   }
 
                   if ($request->has('filter_status') && $request->get('filter_status') && $request->get('filter_status') !== 'all') {
-                      $query->where('{VAR_CLASS_NAME}.status', $request->get('filter_status') == 'seen' ? 1 : 0);
+                      $query->where('Demo.status', $request->get('filter_status') == 'seen' ? 1 : 0);
                   }
 
               })->latest()

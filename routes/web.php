@@ -45,6 +45,14 @@ Route::group(
 
            /* User Data Web  Path*/
            Route::resource('population','PopulationController');
+
+           /* Demo*/
+            Route::resource('demo','DemoController');
+
+           /* District */
+           Route::resource('district','DistrictController');
+           Route::get('/getDistrict', ['as'=>'getDistrict', 'uses'=>'DistrictController@district']);
+
     });
 
 

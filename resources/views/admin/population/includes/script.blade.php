@@ -41,4 +41,26 @@
         })
     })
 
+    $(function (){
+
+       $('#state_dropdown').on('change', function (){
+           const state = $('#state_dropdown').val();
+
+               $('#district_value').empty();
+
+               $.ajax({
+                   data : { stateNo : state},
+                   method : 'get',
+                   url : '{{ route('admin.getDistrict') }}',
+                   success: function(res) {
+
+                       $.map(res.body , function (district){
+                           $('#district_value').append("<option value="+ district.id +">"+ district.name +"</option>")
+                       })
+                   }
+               })
+       })
+
+    })
+
 </script>

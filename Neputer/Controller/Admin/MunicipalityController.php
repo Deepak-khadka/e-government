@@ -2,30 +2,30 @@
 
 namespace Neputer\Controller\Admin;
 use Exception;
-use Neputer\Entities\{{ Model }};
+use Neputer\Entities\Municipality;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Neputer\Services\{{ Controller }}Service;
+use Neputer\Services\MunicipalityService;
 
-class {{ Controller }}Controller extends BaseController
+class MunicipalityController extends BaseController
 {
 
-    protected ${{variable}}Service;
-    protected $view_path = 'admin.{{variable}}';
+    protected $municipalityService;
+    protected $view_path = 'admin.municipality';
     protected $model;
     protected $image_name = null;
     protected $folder;
     protected $folder_path;
     protected $image_dimensions;
-    protected $panel = '{{ Controller }}';
+    protected $panel = 'Municipality';
 
-    public function __construct( {{ Controller }}Service ${{variable}}Service)
+    public function __construct( MunicipalityService $municipalityService)
     {
-        $this->{{variable}}Service = ${{variable}}Service;
+        $this->municipalityService = $municipalityService;
         if(!file_exists(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder))){
                      mkdir(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder));
          }
@@ -40,7 +40,7 @@ class {{ Controller }}Controller extends BaseController
     public function index(Request $request)
     {
        $data = [];
-       $data['{{variable}}'] = $this->{{variable}}Service->getAll{{variable}}($request);
+       $data['municipality'] = $this->municipalityService->getAllmunicipality($request);
 
       return view($this->view_path.'.index',compact('data'));
     }
@@ -65,36 +65,36 @@ class {{ Controller }}Controller extends BaseController
 
     public function store(Request $request)
     {
-      $this->{{variable}}Service->store($request);
+      $this->municipalityService->store($request);
       session()->flash('success', $this->panel.' added Successfully');
-      return redirect('admin/{{variable}}');
+      return redirect('admin/municipality');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  {{ Model }}  ${{variable}}
+     * @param  Municipality  $municipality
      * @return Application|Factory|View|Response
      */
 
-    public function show({{ Model }} ${{variable}})
+    public function show(Municipality $municipality)
     {
         $data = [];
-        $data['{{variable}}'] = ${{variable}};
+        $data['municipality'] = $municipality;
         return view($this->view_path.'.show',compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  {{ Model }}  ${{variable}}
+     * @param  Municipality  $municipality
      * @return Application|Factory|View|Response
      */
 
-    public function edit({{ Model }} ${{variable}})
+    public function edit(Municipality $municipality)
     {
         $data = [];
-        $data['{{variable}}'] = ${{variable}};
+        $data['municipality'] = $municipality;
         return view($this->view_path.'.edit',compact('data'));
     }
 
@@ -102,15 +102,15 @@ class {{ Controller }}Controller extends BaseController
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param {{ Model }} ${{variable}}
+     * @param Municipality $municipality
      * @return Application|Factory|View|Response
      */
 
-    public function update(Request $request, {{ Model }} ${{variable}})
+    public function update(Request $request, Municipality $municipality)
     {
-       $this->{{variable}}Service->update($request, ${{variable}});
+       $this->municipalityService->update($request, $municipality);
        session()->flash('success-message', $this->panel.' Updated Successfully');
-       return redirect('admin/{{variable}}');
+       return redirect('admin/municipality');
     }
 
       /**

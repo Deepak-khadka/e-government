@@ -71,6 +71,7 @@ class PopulationController extends BaseController
      * @return Application|Factory|View|Response
      */
 
+
     public function create()
     {
         return view($this->view_path.'.create');
@@ -85,7 +86,8 @@ class PopulationController extends BaseController
 
     public function store(PopulationFormValidation $request)
     {
-       $this->_uploadImage($request->file);
+
+       $this->_uploadImage($request->get('file'));
 
         $request->merge([
             'name'=>$request->get('first_name').' '.$request->get('middle_name').' '.$request->get('last_name'),
@@ -106,7 +108,7 @@ class PopulationController extends BaseController
      * @return Application|Factory|View|Response
      */
 
-    public function show(User$id)
+    public function show(User $id)
     {
         $data = [];
         $data['row'] = $id;
@@ -120,7 +122,7 @@ class PopulationController extends BaseController
      * @return Application|Factory|View|Response
      */
 
-    public function edit(User$id)
+    public function edit(User $id)
     {
         $data = [];
         $data['row'] = $id;
@@ -135,9 +137,9 @@ class PopulationController extends BaseController
      * @return Application|Factory|View|Response
      */
 
-    public function update(Request $request, User$id)
+    public function update(Request $request, User $id)
     {
-        //
+       dd($request, $id);
     }
 
       /**
@@ -148,9 +150,11 @@ class PopulationController extends BaseController
       * @throws Exception
       */
 
-    public function destroy( $model )
+    public function destroy( $model ): RedirectResponse
     {
         $model->delete();
         return redirect()->back();
     }
+
+
 }

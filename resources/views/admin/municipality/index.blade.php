@@ -1,16 +1,14 @@
 @extends('admin.layouts.master')
-@push('css')
-    <link rel="stylesheet" href="{{ asset('assets/admin/DataTables/datatables.css') }}">
-@endpush
-
 @section('content')
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox ">
 
-                @include('admin.layouts.includes.breadcrumb',['base'=>'population','title'=>'population','panel'=>'population'])
-
-
+                @include('admin.layouts.includes.breadcrumb',['base'=>'municipality','title'=>'municipality','panel'=>'municipality'])
+              {{--     @include('flash::message') --}}
+               @push('css')
+                    <link rel="stylesheet" href="{{ asset('assets/admin/DataTables/datatables.css') }}">
+                @endpush
                 <div class="ibox-content">
                 <form action="#" id="filter-form">
                     <div class="row" id="filter-form">
@@ -63,7 +61,7 @@
                     </div>
                 </form>
 
-                  @include('admin.population.includes.table')
+                @include('admin.municipality.includes.table')
 
                 </div>
             </div>
@@ -72,8 +70,8 @@
     </div>
     @endsection
 @push('js')
-
     <script src="{{ asset('assets/admin/js/bootbox.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/DataTables/datatables.js') }}"></script>
-      @include('admin.population.includes.script')
+        <script src="{{ asset('assets/admin/DataTables/datatables.js') }}"></script>
+
+  {{--    @include('admin.common.scripts')--}}
 @endpush

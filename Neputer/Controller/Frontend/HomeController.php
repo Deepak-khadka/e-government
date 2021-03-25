@@ -2,6 +2,7 @@
 
 
 namespace Neputer\Controller\Frontend;
+use Illuminate\Http\Request;
 use Neputer\Services\PopulationService;
 
 class HomeController
@@ -21,5 +22,7 @@ class HomeController
     {
         return view('frontend.home.index');
     }
+
+
 
 }

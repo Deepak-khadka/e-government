@@ -2,30 +2,30 @@
 
 namespace Neputer\Controller\Admin;
 use Exception;
-use Neputer\Entities\{{ Model }};
+use Neputer\Entities\Demo;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Neputer\Services\{{ Controller }}Service;
+use Neputer\Services\DemoService;
 
-class {{ Controller }}Controller extends BaseController
+class DemoController extends BaseController
 {
 
-    protected ${{variable}}Service;
-    protected $view_path = 'admin.{{variable}}';
+    protected $demoService;
+    protected $view_path = 'admin.demo';
     protected $model;
     protected $image_name = null;
     protected $folder;
     protected $folder_path;
     protected $image_dimensions;
-    protected $panel = '{{ Controller }}';
+    protected $panel = 'Demo';
 
-    public function __construct( {{ Controller }}Service ${{variable}}Service)
+    public function __construct( DemoService $demoService)
     {
-        $this->{{variable}}Service = ${{variable}}Service;
+        $this->demoService = $demoService;
         if(!file_exists(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder))){
                      mkdir(public_path('assets/admin/images'.DIRECTORY_SEPARATOR.$this->folder));
          }
@@ -40,8 +40,7 @@ class {{ Controller }}Controller extends BaseController
     public function index(Request $request)
     {
        $data = [];
-       $data['{{variable}}'] = $this->{{variable}}Service->getAll{{variable}}($request);
-
+       $data['demo'] = $this->demoService->getAlldemo($request);
       return view($this->view_path.'.index',compact('data'));
     }
 
@@ -65,36 +64,36 @@ class {{ Controller }}Controller extends BaseController
 
     public function store(Request $request)
     {
-      $this->{{variable}}Service->store($request);
+      $this->demoService->store($request);
       session()->flash('success', $this->panel.' added Successfully');
-      return redirect('admin/{{variable}}');
+      return redirect('admin/demo');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  {{ Model }}  ${{variable}}
+     * @param  Demo  $demo
      * @return Application|Factory|View|Response
      */
 
-    public function show({{ Model }} ${{variable}})
+    public function show(Demo $demo)
     {
         $data = [];
-        $data['{{variable}}'] = ${{variable}};
+        $data['demo'] = $demo;
         return view($this->view_path.'.show',compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  {{ Model }}  ${{variable}}
+     * @param  Demo  $demo
      * @return Application|Factory|View|Response
      */
 
-    public function edit({{ Model }} ${{variable}})
+    public function edit(Demo $demo)
     {
         $data = [];
-        $data['{{variable}}'] = ${{variable}};
+        $data['demo'] = $demo;
         return view($this->view_path.'.edit',compact('data'));
     }
 
@@ -102,15 +101,15 @@ class {{ Controller }}Controller extends BaseController
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param {{ Model }} ${{variable}}
+     * @param Demo $demo
      * @return Application|Factory|View|Response
      */
 
-    public function update(Request $request, {{ Model }} ${{variable}})
+    public function update(Request $request, Demo $demo)
     {
-       $this->{{variable}}Service->update($request, ${{variable}});
+       $this->demoService->update($request, $demo);
        session()->flash('success-message', $this->panel.' Updated Successfully');
-       return redirect('admin/{{variable}}');
+       return redirect('admin/demo');
     }
 
       /**

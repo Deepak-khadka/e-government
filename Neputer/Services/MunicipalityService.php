@@ -2,53 +2,53 @@
 
 namespace Neputer\Services;
 
-use Neputer\Entities\{CLASS_NAME};
+use Neputer\Entities\Municipality;
 use Illuminate\Http\Request;
 /**
- * Class {CLASS_NAME}Service
+ * Class MunicipalityService
  * @package Neputer\Services
  */
-class {CLASS_NAME}Service
+class MunicipalityService
 {
 
     /**
-     * The {CLASS_NAME} instance
+     * The Municipality instance
      *
      * @var $model
      */
     protected $model;
 
     /**
-     * {CLASS_NAME}Service constructor.
-     * @param {CLASS_NAME} ${VAR_CLASS_NAME}
+     * MunicipalityService constructor.
+     * @param Municipality $Municipality
      */
-    public function __construct({CLASS_NAME} ${VAR_CLASS_NAME})
+    public function __construct(Municipality $Municipality)
     {
-        $this->model = ${VAR_CLASS_NAME};
+        $this->model = $Municipality;
     }
 
-     public function getAll{VAR_CLASS_NAME}(Request $request)
+     public function getAllMunicipality(Request $request)
      {
        return  $this->model->where(function ($query) use ($request){
 
                   if($request->has('filter_name') && $request->get('filter_name')){
-                      $query->where('{VAR_CLASS_NAME}.name','like','%'.$request->get('filter_name').'%');
+                      $query->where('Municipality.name','like','%'.$request->get('filter_name').'%');
                   }
 
                   if($request->has('filter_email') && $request->get('filter_email')){
-                      $query->where('{VAR_CLASS_NAME}.email', 'like', '%'. $request->get('filter_email'). '%');
+                      $query->where('Municipality.email', 'like', '%'. $request->get('filter_email'). '%');
                   }
 
                   if($request->has('filter_message') && $request->get('filter_message')){
-                      $query->where('{VAR_CLASS_NAME}.message', 'like', '%'.$request->get('filter_message').'%');
+                      $query->where('Municipality.message', 'like', '%'.$request->get('filter_message').'%');
                   }
 
                   if($request->has('filter_created_at') && $request->get('filter_created_at')){
-                      $query->where('{VAR_CLASS_NAME}.created_at', 'like', '%'.$request->get('filter_created_at').'%');
+                      $query->where('Municipality.created_at', 'like', '%'.$request->get('filter_created_at').'%');
                   }
 
                   if ($request->has('filter_status') && $request->get('filter_status') && $request->get('filter_status') !== 'all') {
-                      $query->where('{VAR_CLASS_NAME}.status', $request->get('filter_status') == 'seen' ? 1 : 0);
+                      $query->where('Municipality.status', $request->get('filter_status') == 'seen' ? 1 : 0);
                   }
 
               })->latest()

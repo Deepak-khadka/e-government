@@ -70,33 +70,33 @@
     <label class="col-sm-1 col-form-label is_required">State </label>
 
     <div class="col-sm-3">
-        {{ Form::text('state',null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('state', config('neputer.province') , null, ['class'=>'form-control', 'required','id'=>'state_dropdown']) }}
 
         @if($errors->has('state'))
             <label for="state" class="has-error"> {{ $errors->first('state') }}</label>
         @endif
     </div>
 
-    <label class="col-sm-1 col-form-label is_required">Zone </label>
 
-    <div class="col-sm-3">
-        {{ Form::text('zone', null , ['class'=>'form-control', 'required']) }}
-
-        @if($errors->has('zone'))
-            <label for="zone" class="has-error"> {{ $errors->first('zone') }}</label>
-        @endif
-    </div>
     <label class="col-sm-1 col-form-label is_required">District </label>
 
     <div class="col-sm-3">
-        {{ Form::text('district',null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('district', [] , null , ['class'=>'form-control','id'=>'district_value', 'required']) }}
 
         @if($errors->has('district'))
             <label for="district" class="has-error"> {{ $errors->first('district') }}</label>
         @endif
     </div>
 
+    <label class="col-sm-1 col-form-label is_required">Municipality </label>
 
+    <div class="col-sm-3">
+        {{ Form::text('municipality', null , ['class'=>'form-control', 'required']) }}
+
+        @if($errors->has('municipality'))
+            <label for="municipality" class="has-error"> {{ $errors->first('municipality') }}</label>
+        @endif
+    </div>
 
 
 </div>
@@ -223,6 +223,7 @@
 
 
 </div>
+
 
 <div class="form-group row">
     <div class="col-sm-4 col-sm-offset-2">
