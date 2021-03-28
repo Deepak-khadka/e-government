@@ -71,7 +71,6 @@
     @endsection
 @push('js')
     <script src="{{ asset('assets/admin/js/bootbox.min.js') }}"></script>
-        <script src="{{ asset('assets/admin/DataTables/datatables.js') }}"></script>
-
-  {{--    @include('admin.common.scripts')--}}
+    <script src="{{ asset('assets/admin/DataTables/datatables.js') }}"></script>
+    @include('admin.municipality.includes.script')
 @endpush

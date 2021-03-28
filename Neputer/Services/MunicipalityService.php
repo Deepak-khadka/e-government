@@ -27,32 +27,9 @@ class MunicipalityService
         $this->model = $Municipality;
     }
 
-     public function getAllMunicipality(Request $request)
+     public function getAllMunicipality()
      {
-       return  $this->model->where(function ($query) use ($request){
-
-                  if($request->has('filter_name') && $request->get('filter_name')){
-                      $query->where('Municipality.name','like','%'.$request->get('filter_name').'%');
-                  }
-
-                  if($request->has('filter_email') && $request->get('filter_email')){
-                      $query->where('Municipality.email', 'like', '%'. $request->get('filter_email'). '%');
-                  }
-
-                  if($request->has('filter_message') && $request->get('filter_message')){
-                      $query->where('Municipality.message', 'like', '%'.$request->get('filter_message').'%');
-                  }
-
-                  if($request->has('filter_created_at') && $request->get('filter_created_at')){
-                      $query->where('Municipality.created_at', 'like', '%'.$request->get('filter_created_at').'%');
-                  }
-
-                  if ($request->has('filter_status') && $request->get('filter_status') && $request->get('filter_status') !== 'all') {
-                      $query->where('Municipality.status', $request->get('filter_status') == 'seen' ? 1 : 0);
-                  }
-
-              })->latest()
-                  ->paginate(10);
+       return  $this->model->select('municipalities.id','district.name as district','municipalities.municipality as municipality')->join('district','district.id','=','municipalities.district_id')->get();
      }
 
       public function store(Request $request)

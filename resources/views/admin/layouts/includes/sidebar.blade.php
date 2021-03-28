@@ -24,14 +24,14 @@
                    {{config('app.name')}}
                 </div>
             </li>
-            <li>
+            <li {{Request::is('admin/hospital*') || Request::is('admin/category*')|| Request::is('admin/population*')?'class=active':''}}>
                 <a href="#">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">Section</span>
                     <span class="fa arrow"></span>
                 </a>
                     <ul class="nav nav-second-level {{Request::is('admin/hospital*'|| Request::is('admin/category*'))
-                       ?'class=collapse in':'collapse'}}">
+                       ?'collapse in':'collapse'}}">
                         <li {{Request::is('admin/hospital')?'class=active':''}}>
                             <a href="{{ route('admin.hospital.index') }}"><span class="nav-label">Hospital</span> </a>
                         </li>
@@ -43,7 +43,23 @@
                         </li>
                     </ul>
                 </li>
-
+            <li
+                {{Request::is('admin/district') || Request::is('admin/municipalities')?'class=active':''}}>
+                <a href="#">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">Setup</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level {{Request::is('admin/district*'|| Request::is('admin/district*'))
+                       ?'collapse in':'collapse'}}">
+                    <li {{Request::is('admin/district')?'class=active':''}}>
+                        <a href="{{ route('admin.district.index') }}"><span class="nav-label">District</span> </a>
+                    </li>
+                    <li {{Request::is('admin/municipalities')?'class=active':''}}>
+                        <a href="{{ route('admin.municipality.index') }}"><span class="nav-label">Municipalities</span> </a>
+                    </li>
+                </ul>
+            </li>
            </ul>
     </div>
 </nav>

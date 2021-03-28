@@ -1,30 +1,22 @@
 <script>
-    $(function () {
+    $(function (){
 
-        $(document).on('submit', '#filter-form', function () {
-
-            var data = $(this).find(':input').filter(function () {
-                return !!this.value;
-            }).serialize();
-
-            var url = '{{ route($base['base_route'].'.index') }}';
-            url = url + '?' + data;
-            window.location.href = url;
-
-            return false;
-        });
-
-
-         /** delete row */
-           $(document).on('click', '#delete-row', function () {
-              var $this = $(this);
-               bootbox.confirm("Are you sure want to delete?", function(result) {
-                   if(result) {
-                       $this.closest('form').submit();
-                   }
-               });
-               return false;
-            });
-
-    });
+        $('#municipality-table').DataTable({
+            language   : {search : ""},
+            bInfo      : false,
+            processing : false,
+            serverSide : true,
+            lengthMenu : [50, 10, 60, 100],
+            ajax: {
+                url : '{{route('admin.municipality.index')}}',
+                type: 'get',
+            },
+            columns: [
+                {data: 'id', name: 'id', orderable: false},
+                {data: 'district', name: 'district', orderable: true},
+                {data: 'municipality', name: 'municipality', orderable: true},
+                {data: 'action', name: 'action', orderable: true},
+            ],
+        })
+    })
 </script>

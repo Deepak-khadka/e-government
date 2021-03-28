@@ -8,6 +8,8 @@
                     <div class="ibox-content">
                          {!! Form::open(['route' => 'admin.municipality.store', 'method' => 'post']) !!}
                             @includeIf('admin.municipality.includes.form')
+                            @includeIf('admin.layouts.includes.submitButton')
+
                         {!! Form::close() !!}
 
                     </div>
@@ -18,3 +20,7 @@
 
     @include('admin.layouts.includes.copyright-section')
 @endsection
+@push('js')
+    @include('admin.layouts.includes.formValidation')
+    @include('admin.population.includes.script')
+@endpush

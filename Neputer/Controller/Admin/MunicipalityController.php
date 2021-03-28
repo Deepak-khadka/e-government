@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Neputer\Services\MunicipalityService;
+use Yajra\DataTables\DataTables;
 
 class MunicipalityController extends BaseController
 {
@@ -31,18 +32,37 @@ class MunicipalityController extends BaseController
          }
     }
 
-     /**
+    /**
      * Display a listing of the resource.
      * @param Request $request
      * @return Application|Factory|View|Response
+     * @throws Exception
      */
 
     public function index(Request $request)
     {
-       $data = [];
-       $data['municipality'] = $this->municipalityService->getAllmunicipality($request);
+        $data = $this->municipalityService->getAllmunicipality();
+        if($request->ajax())
+        {
+            return DataTables::of($data)
+                ->editColumn('municipalities.id', function ($municipality) {
+                    return '<input type="checkbox" value=' . $municipality . ' name="chkData[]">';
+                })
+                ->addColumn('district', function ($municipality) {
+                    return $municipality->district;
+                })
+                ->addColumn('municipality', function ($municipality) {
+                    return $municipality->municipality;
+                })
+                ->addColumn('action', function ($data) {
+                    $model = 'municipality';
+                    return view('admin.district.includes.data-table-action', compact('data', 'model'))->render();
+                })
 
-      return view($this->view_path.'.index',compact('data'));
+                ->rawColumns(['id','name','district','action'])
+                ->make(true);
+        }
+        return view($this->view_path . '.index', compact('data'));
     }
 
     /**
@@ -60,14 +80,14 @@ class MunicipalityController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Application|Factory|View|Response
+     * @return RedirectResponse
      */
 
     public function store(Request $request)
     {
       $this->municipalityService->store($request);
       session()->flash('success', $this->panel.' added Successfully');
-      return redirect('admin/municipality');
+      return $this->redirect($request);
     }
 
     /**

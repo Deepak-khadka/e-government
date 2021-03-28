@@ -35,23 +35,23 @@ Route::group(
 
     function () {
 
-           Route::resource('category','CategoryController');
-           Route::get('/dashboard',['as'=>'dashboard.index','uses'=>'PopulationController@index']);
+        Route::resource('category', 'CategoryController');
+        Route::get('/dashboard', ['as' => 'dashboard.index', 'uses' => 'PopulationController@index']);
 
-           Route::get('home',['as'=>'profile','uses'=>'CategoryController@index']);
+        Route::get('home', ['as' => 'profile', 'uses' => 'CategoryController@index']);
 
-           /* Hospital Web  Path*/
-           Route::resource('hospital','HospitalController');
+        /* Hospital Web  Path*/
+        Route::resource('hospital', 'HospitalController');
 
-           /* User Data Web  Path*/
-           Route::resource('population','PopulationController');
+        /* User Data Web  Path*/
+        Route::resource('population', 'PopulationController');
 
-           /* Demo*/
-            Route::resource('demo','DemoController');
+        /* Demo*/
+        Route::resource('municipality', 'MunicipalityController');
 
-           /* District */
-           Route::resource('district','DistrictController');
-           Route::get('/getDistrict', ['as'=>'getDistrict', 'uses'=>'DistrictController@district']);
+        /* District */
+        Route::resource('district', 'DistrictController');
+        Route::get('/getDistrict', ['as' => 'getDistrict', 'uses' => 'DistrictController@district']);
 
     });
 

@@ -13,4 +13,9 @@ class District extends Model
                'name','area','province','range','order'
        ];
 
+    public function municipalities()
+    {
+        $this->hasMany(Municipality::class);
+    }
+
 }

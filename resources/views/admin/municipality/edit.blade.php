@@ -19,3 +19,8 @@
 
     @include('admin.layouts.includes.copyright-section')
 @endsection
+
+@push('js')
+    @include('admin.layouts.includes.formValidation')
+    @include('admin.population.includes.script')
+@endpush
