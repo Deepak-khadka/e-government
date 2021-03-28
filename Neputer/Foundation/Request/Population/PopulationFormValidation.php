@@ -26,17 +26,16 @@ class PopulationFormValidation extends FormRequest
             'sex' => 'required',
             'phone'=>'max:15 | min:10',
             'state' => 'required',
-            'zone' => 'required',
             'district' => 'required',
+            'municipality' => 'required',
             'tole' => 'required',
             'ward_no' => 'required',
             'marital_status' => 'required',
             'education_level' => 'required',
             'service' => 'required',
             'present_location' => 'required',
-            'security_number' => 'required',
             'citizenship_number'=> 'max:15',
-            'file' => 'required',
+            'file' => 'mimes:jpeg,png,jpg | required',
         ];
     }
 

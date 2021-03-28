@@ -48,6 +48,7 @@ Route::group(
 
         /* Demo*/
         Route::resource('municipality', 'MunicipalityController');
+        Route::get('/getMunicipality', ['as' => 'getMunicipality', 'uses' => 'MunicipalityController@getMunicipality']);
 
         /* District */
         Route::resource('district', 'DistrictController');

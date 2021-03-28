@@ -28,7 +28,7 @@
             bInfo      : false,
             processing : false,
             serverSide : true,
-            lengthMenu : [5, 10, 50, 100],
+            lengthMenu : [25, 10, 50, 100],
             ajax: {
                 url : '{{route('admin.population.index')}}',
                 type: 'get',
@@ -53,9 +53,30 @@
                    method : 'get',
                    url : '{{ route('admin.getDistrict') }}',
                    success: function(res) {
-
+                       $('#district_value').append("<option value='{{ null }}'>Select One</option>");
                        $.map(res.body , function (district){
                            $('#district_value').append("<option value="+ district.id +">"+ district.name +"</option>")
+                       })
+                   }
+               })
+       })
+
+    });
+
+    $(function (){
+
+       $('#district_value').on('change', function (){
+           const district = $('#district_value').val();
+               $('#municipality_id').empty();
+
+               $.ajax({
+                   data : { districtNo : district},
+                   method : 'get',
+                   url : '{{ route('admin.getMunicipality') }}',
+                   success: function(res) {
+                       $('#municipality_id').append("<option value='{{ null }}'>Select One</option>");
+                       $.map(res.body , function (municipality){
+                           $('#municipality_id').append("<option value="+ municipality.id +">"+ municipality.municipality +"</option>")
                        })
                    }
                })

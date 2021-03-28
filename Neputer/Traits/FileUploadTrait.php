@@ -1,91 +1,76 @@
 <?php
 
-
 namespace Neputer\Traits;
 
-use Image;
-use Illuminate\Support\Facades\File;
+use File;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-
+/**
+ * Trait Image
+ * @package Neputer\Supports\Concerns
+ */
 trait FileUploadTrait
 {
 
-    public function _uploadImage($image , $request_for = 'store', $image_name = null)
+    /**
+     * @param $image
+     * @param $folder_name
+     * @param null $existing_image
+     * @return string
+     */
+    public function uploadImage($image, $folder_name, $existing_image = null)
     {
-
-      $this->image_name = $image_name;
-
-      //If image exist, file upload image
-        if($image)
-        {
-            $this->image_name = time(). mt_rand(4100, 9999)."_".$image->getClientOriginalName();
-
-            //check and create folder if not exist
-            if(!file_exists($this->folder_path)){
-                File::makeDirectory($this->folder_path, 0775 , true);
-            }
-            $image->move($this->folder_path, $this->image_name);
-
-            if($request_for == 'update'){
-                if($image_name){
-                    if(file_exists($this->folder_path.DIRECTORY_SEPARATOR.$image_name)){
-                        unlink($this->folder_path . DIRECTORY_SEPARATOR .$image_name);
-                    }
-                }
-            }
+        $image_name = $this->__getRandomNumbers() . '_' . $image->getClientOriginalName();
+        $file_path = $folder_name . DIRECTORY_SEPARATOR . $image_name;
+        Storage::disk('public')->put($file_path, File::get($image));
+        if ($existing_image) {
+            $this->__deleteFile('images' . DIRECTORY_SEPARATOR . $folder_name . DIRECTORY_SEPARATOR . $existing_image);
         }
-     }
+        return $image_name;
+    }
 
-    public function uploadImageThumbs( $image, $request_for = 'store', $image_name = null)
+    /**
+     * Creates different size thumbs for uploaded image
+     *
+     * @param $image
+     * @param $imageName
+     * @param $folder_name
+     * @param null $image_name will have value if request_for is update
+     */
+    public function uploadImageThumbs($image, $imageName, $folder_name, $image_name = null)
     {
-        if($image){
-            $image_dimension = $this->image_dimensions;
-            foreach ($image_dimension as $image_dimension){
-                $img = Image::make($this->folder_path . DIRECTORY_SEPARATOR .$this->image_name)->resize($image_dimension['width'], $image_dimension['height']);
-                $img->save($this->folder_path . DIRECTORY_SEPARATOR . $image_dimension['width']."_".$image_dimension['height']."_".$this->image_name, 75);
-            }
-        }
-        if ($request_for == 'update') {
-            // remove old image thumb images
-            foreach ($this->image_dimension as $image_dimension) {
-                if (file_exists($this->folder_path . DIRECTORY_SEPARATOR . $image_dimension['width'] . '_' . $image_dimension['height'] . '_' . $image_name)) {
-                    unlink($this->folder_path . DIRECTORY_SEPARATOR . $image_dimension['width'] . '_' . $image_dimension['height'] . '_' . $image_name);
-                }
-            }
-        }
-     }
+        $image_dimension = $this->image_dimensions;
 
-    public function removeImage( $image_name )
-    {
-        if($image_name){
-            if(file_exists($this->folder_path. DIRECTORY_SEPARATOR .$image_name)){
-                unlink($this->folder_path. DIRECTORY_SEPARATOR. $image_name);
-            }
-        }
-
-
-     }
-    public function removeImageThumbs($image_name, $dimensions = null)
-    {
-        if ($image_name) {
-
-            $image_dimensions = $dimensions?$dimensions:$this->image_dimensions;
-
-            // remove old image thumb images
-            foreach ($image_dimensions as $image_dimension) {
-                if (file_exists($this->folder_path . DIRECTORY_SEPARATOR . $image_dimension['width'] . '_' . $image_dimension['height'] . '_' . $image_name)) {
-                    unlink($this->folder_path . DIRECTORY_SEPARATOR . $image_dimension['width'] . '_' . $image_dimension['height'] . '_' . $image_name);
-                }
-            }
-
+        foreach ($image_dimension as $image_dimansion) {
+            // open and resize an image file
+            $img = \Intervention\Image\Facades\Image::make($image)->resize($image_dimansion['width'], $image_dimansion['height']);
+            // save file as jpg with medium quality
+            Storage::disk('public')->put('images' . DIRECTORY_SEPARATOR . $folder_name . DIRECTORY_SEPARATOR . $image_dimansion['width'] . '_' . $image_dimansion['height'] . '_' . $imageName, $img);
         }
     }
 
-    public function createFolderIfNotExist()
+    public function delete($folder_name, $image_name)
     {
-        if (!file_exists($this->folder_path)) {
-            File::makeDirectory($this->folder_path, 0775, true);
-        }
+        $this->__deleteFile('images' . DIRECTORY_SEPARATOR . $folder_name . DIRECTORY_SEPARATOR . $image_name);
     }
 
+    public function __deleteFile($file)
+    {
+        if (Storage::disk('public')->has($file)) {
+            Storage::disk('public')->delete($file);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Get Random Number
+     *
+     * @return string
+     */
+    public function __getRandomNumbers()
+    {
+        return rand(5555, 9876) . '_';
+    }
 }

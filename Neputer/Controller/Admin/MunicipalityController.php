@@ -2,6 +2,7 @@
 
 namespace Neputer\Controller\Admin;
 use Exception;
+use Illuminate\Http\JsonResponse;
 use Neputer\Entities\Municipality;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -145,5 +146,10 @@ class MunicipalityController extends BaseController
     {
         $model->delete();
         return redirect()->back();
+    }
+
+    public function getMunicipality(Request $request): JsonResponse
+    {
+        return $this->responseOk($this->municipalityService->getJsonData($request->get('districtNo')));
     }
 }

@@ -81,24 +81,21 @@ class PopulationController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param PopulationFormValidation $request
-     * @return Application|Factory|View|Response
+     * @return RedirectResponse
      */
 
     public function store(PopulationFormValidation $request)
     {
-
-       $this->_uploadImage($request->get('file'));
-
         $request->merge([
-            'name'=>$request->get('first_name').' '.$request->get('middle_name').' '.$request->get('last_name'),
-            'password'=>bcrypt($request->get('first_name').'@123'),
-            'email'=>$request->get('first_name').$request->get('last_name').'@gmail.com',
-            'image'=>$this->image_name,
-            'role'=>'users'
+            'name' => $request->get('first_name') . ' ' . $request->get('middle_name') . ' ' . $request->get('last_name'),
+            'password' => bcrypt($request->get('first_name') . '@123'),
+            'email' => $request->get('first_name') . $request->get('last_name') . \Str::random(5) . '@gmail.com',
+            'image' => $this->uploadImage($request->file, $this->folder),
+            'role' => 'users'
         ]);
         $this->populationService->create($request->all());
-        $request->session()->flash('success',$this->panel.'Created Successfully');
-        return redirect('admin/population');
+        $request->session()->flash('success', $this->panel . 'Created Successfully');
+        return redirect()->route($this->view_path.'.index');
     }
 
     /**

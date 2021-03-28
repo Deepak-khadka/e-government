@@ -44,7 +44,7 @@
     <label class="col-sm-1 col-form-label is_required">Age </label>
 
     <div class="col-sm-3">
-        {{ Form::number('age',null , ['class'=>'form-control', 'required','id'=>'age']) }}
+        {{ Form::number('age',null , ['class'=>'form-control', 'required','id'=>'age','readonly']) }}
 
         @if($errors->has('age'))
             <label for="age" class="has-error"> {{ $errors->first('age') }}</label>
@@ -91,7 +91,7 @@
     <label class="col-sm-1 col-form-label is_required">Municipality </label>
 
     <div class="col-sm-3">
-        {{ Form::text('municipality', null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('municipality', [] ,  null , ['class'=>'form-control', 'id'=>'municipality_id','required']) }}
 
         @if($errors->has('municipality'))
             <label for="municipality" class="has-error"> {{ $errors->first('municipality') }}</label>
@@ -104,15 +104,7 @@
 <div class="form-group row">
 
 
-    <label class="col-sm-1 col-form-label is_required">Tole </label>
 
-    <div class="col-sm-3">
-        {{ Form::text('tole',null , ['class'=>'form-control', 'required']) }}
-
-        @if($errors->has('tole'))
-            <label for="tole" class="has-error"> {{ $errors->first('tole') }}</label>
-        @endif
-    </div>
 
     <label class="col-sm-1 col-form-label is_required">Ward No </label>
 
@@ -123,6 +115,17 @@
             <label for="ward_no" class="has-error"> {{ $errors->first('ward_no') }}</label>
         @endif
     </div>
+
+    <label class="col-sm-1 col-form-label is_required">Tole </label>
+
+    <div class="col-sm-3">
+        {{ Form::text('tole',null , ['class'=>'form-control', 'required']) }}
+
+        @if($errors->has('tole'))
+            <label for="tole" class="has-error"> {{ $errors->first('tole') }}</label>
+        @endif
+    </div>
+
 
     <label class="col-sm-1 col-form-label is_required">Phone </label>
 
@@ -155,13 +158,13 @@
             <label for="education_level" class="has-error"> {{ $errors->first('education_level') }}</label>
         @endif
     </div>
-    <label class="col-sm-1 col-form-label is_required">Service </label>
+    <label class="col-sm-1 col-form-label is_required">Service Type</label>
 
     <div class="col-sm-3">
-        {{ Form::select('service',[null=>'Choose Job Status','unemployment'=>'Unemployment','employment'=>'Employment'],null , ['class'=>'form-control', 'required']) }}
+        {{ Form::select('service_type',[null=>'Choose Job Status','unemployment'=>'Unemployment','employment'=>'Employment'],null , ['class'=>'form-control', 'required']) }}
 
-        @if($errors->has('service'))
-            <label for="service" class="has-error"> {{ $errors->first('service') }}</label>
+        @if($errors->has('service_type'))
+            <label for="service_type" class="has-error"> {{ $errors->first('service_type') }}</label>
         @endif
     </div>
 
@@ -169,6 +172,15 @@
 
 <div class="form-group row">
 
+    <label class="col-sm-1 col-form-label is_required">Service </label>
+
+    <div class="col-sm-3">
+        {{ Form::text('service',null , ['class'=>'form-control', 'required']) }}
+
+        @if($errors->has('service'))
+            <label for="service" class="has-error"> {{ $errors->first('service') }}</label>
+        @endif
+    </div>
 
     <label class="col-sm-1 col-form-label is_required">Location </label>
 
@@ -194,17 +206,6 @@
         </div>
 
     </div>
-
-
-     {{ Form::label('Security No.',null ,['class'=>'col-sm-1 col-form-label']) }}
-
-     <div class="col-sm-3">
-        {{ Form::text('security_number', null , ['class'=>'form-control']) }}
-
-        @if($errors->has('security_number'))
-            <label for="security_number" class="has-error"> {{ $errors->first('security_number') }}</label>
-        @endif
-     </div>
 
 </div>
 

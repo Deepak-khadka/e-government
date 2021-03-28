@@ -46,4 +46,9 @@ class MunicipalityService
     {
         $this->model->where('id',$id)->update($request->except('_method','_token'));
     }
+
+    public function getJsonData($get)
+    {
+        return $this->model->select('id','municipality')->where('district_id',$get)->get();
+    }
 }
