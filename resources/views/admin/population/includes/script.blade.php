@@ -47,7 +47,7 @@
            const state = $('#state_dropdown').val();
 
                $('#district_value').empty();
-
+               $('#municipality_id').empty();
                $.ajax({
                    data : { stateNo : state},
                    method : 'get',
@@ -59,6 +59,21 @@
                        })
                    }
                })
+       })
+
+    });
+    $(function (){
+
+       $('.service_type').on('change', function (){
+           var service_type = $('.service_type').val();
+              if(service_type === 'unemployment')
+              {
+                  $('#service').hide("slow");
+              }
+              else {
+                  $('#service').show();
+              }
+
        })
 
     });
