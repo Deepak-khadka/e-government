@@ -75,14 +75,14 @@ class DistrictController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Application
+     * @return RedirectResponse
      */
 
-    public function store(Request $request): Application
+    public function store(Request $request): RedirectResponse
     {
-      $this->districtService->store($request);
-      session()->flash('success','District added Successfully');
-      return redirect('admin/district');
+        $this->districtService->store($request);
+        session()->flash('success', 'District added Successfully');
+        return redirect()->route('admin.district.index');
     }
 
     /**
@@ -118,14 +118,14 @@ class DistrictController extends BaseController
      *
      * @param Request $request
      * @param  $id
-     * @return Application
+     * @return RedirectResponse
      */
 
-    public function update(Request $request, $id): Application
+    public function update(Request $request, $id)
     {
        $this->districtService->update($request, $id);
        session()->flash('success-message', $this->panel.' Updated Successfully');
-       return redirect('admin/district');
+       return redirect()->route('admin.district.index');
     }
 
       /**
