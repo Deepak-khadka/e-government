@@ -19,10 +19,7 @@ class DistrictController extends BaseController
     protected $districtService;
     protected $view_path = 'admin.district';
     protected $model;
-    protected $image_name = null;
     protected $folder;
-    protected $folder_path;
-    protected $image_dimensions;
     protected $panel = 'District';
 
     public function __construct( DistrictService $districtService)
@@ -56,10 +53,7 @@ class DistrictController extends BaseController
                 ->addColumn('province', function ($district) {
                     return $district->province;
                 })
-                ->addColumn('action', function ($data) {
-                    $model = 'district';
-                    return view('admin.district.includes.data-table-action', compact('data', 'model'))->render();
-                })
+                ->addColumn('action', 'admin.district.includes.data-table-action')
                 ->rawColumns(['id','name','province','action'])
                 ->make(true);
         }
@@ -69,7 +63,7 @@ class DistrictController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
 
     public function create()
@@ -81,10 +75,10 @@ class DistrictController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Application|Factory|View|Response
+     * @return Application
      */
 
-    public function store(Request $request)
+    public function store(Request $request): Application
     {
       $this->districtService->store($request);
       session()->flash('success','District added Successfully');
@@ -95,7 +89,7 @@ class DistrictController extends BaseController
      * Display the specified resource.
      *
      * @param  District  $id
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
 
     public function show(District $id)
@@ -109,7 +103,7 @@ class DistrictController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  $id
-     * @return Application|Factory|View|Response
+     * @return Application|Factory|View
      */
 
     public function edit($id)
@@ -124,10 +118,10 @@ class DistrictController extends BaseController
      *
      * @param Request $request
      * @param  $id
-     * @return Application|Factory|View|Response
+     * @return Application
      */
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): Application
     {
        $this->districtService->update($request, $id);
        session()->flash('success-message', $this->panel.' Updated Successfully');
@@ -142,7 +136,7 @@ class DistrictController extends BaseController
       * @throws Exception
       */
 
-    public function destroy( $model )
+    public function destroy( $model ): RedirectResponse
     {
         $model->delete();
         return redirect()->back();

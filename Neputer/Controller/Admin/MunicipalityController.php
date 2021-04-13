@@ -55,11 +55,7 @@ class MunicipalityController extends BaseController
                 ->addColumn('municipality', function ($municipality) {
                     return $municipality->municipality;
                 })
-                ->addColumn('action', function ($data) {
-                    $model = 'municipality';
-                    return view('admin.district.includes.data-table-action', compact('data', 'model'))->render();
-                })
-
+                ->addColumn('action',  'admin.municipality.includes.action-button')
                 ->rawColumns(['id','name','district','action'])
                 ->make(true);
         }

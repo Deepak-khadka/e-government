@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox ">
-                    @include('admin.layouts.includes.breadcrumb',['base'=>'municipality','title'=>'municipality','panel'=>'municipality'])
+                    @include('admin.layouts.includes.breadcrumb', ['base'=>'municipality', 'title'=>'municipality', 'panel'=>'municipality'])
                     <div class="ibox-content">
-                    {!! Form::model($data['municipality'], ['route' => [$base['base_route'].'.update',$data['municipality']->id ],
+                    {!! Form::model($data['municipality'], ['route' => [$base['base_route'].'.update', $data['municipality']->id ],
                              'method' => 'put']) !!}
                          {!! Form::hidden('id', $data['municipality']->id) !!}
                         @includeIf($base['partial'].'.form')
