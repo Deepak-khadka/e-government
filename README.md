@@ -19,3 +19,7 @@ Before using command : `php artisan neputer:generate model-name`
 
 Make Sure :
 - composer install
+
+### login Credentials for new created users
+* User Name : `firstName + LastName @gmail.com` : `firstName@123`
+* Deepak khadka : `deepakkhadka@gmail.com` : `deepak@123`

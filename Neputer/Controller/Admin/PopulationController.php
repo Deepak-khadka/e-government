@@ -89,7 +89,7 @@ class PopulationController extends BaseController
         $request->merge([
             'name' => $request->get('first_name') . ' ' . $request->get('middle_name') . ' ' . $request->get('last_name'),
             'password' => bcrypt($request->get('first_name') . '@123'),
-            'email' => $request->get('first_name') . $request->get('last_name') . \Str::random(5) . '@gmail.com',
+            'email' => $request->get('first_name') . $request->get('last_name') . '@gmail.com',
             'image' => $this->uploadImage($request->file, $this->folder),
             'role' => 'users'
         ]);
