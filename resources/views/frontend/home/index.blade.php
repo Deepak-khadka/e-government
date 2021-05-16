@@ -11,4 +11,6 @@
               <h1> Welcome to the E-तथ्यांक</h1>
           </center>
 
+    @livewire('comment-form')
+
 @endsection

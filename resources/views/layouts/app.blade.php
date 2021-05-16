@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+     @livewireStyles
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -17,7 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{  asset('assets/admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/font-awesome/css/font-awesome.css' )}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/custom.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -79,5 +86,7 @@
             @yield('content')
         </main>
     </div>
+
+    @livewireScripts
 </body>
 </html>
