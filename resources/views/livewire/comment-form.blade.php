@@ -10,7 +10,7 @@
     <form action="" wire:submit.prevent="addReview">
         <div class="row">
             <div class="row col-sm-10">
-                <input wire:model.debounce.500ms="newReview" type="text" class="form-control" placeholder="Enter Name">
+                <input wire:model.debounce.500ms="newReview" type="text" class="form-control" placeholder="Enter Review For E-Government">
             </div>
             <div class="col-sm-2">
                 <button type="submit" class="btn-xs btn btn-primary">Add</button>
