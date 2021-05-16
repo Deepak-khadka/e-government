@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    @error('newComment')
+    @error('newReview')
     <div class="alert alert-danger col-sm-10">{{ $message }}</div>
     @enderror
 
@@ -17,38 +17,38 @@
             </div>
         </div>
     </form>
-<div class="col-10">
+    <div class="col-10">
         <div class="ibox">
             @foreach($reviews as $review)
-            <div class="ibox-content no-padding mt-2">
-                <div class="social-feed-box">
-                    <div class="float-right">
-                        <button wire:click="removeReview({{$review->id}})" class="btn-xs btn-danger dim" type="button">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="social-avatar">
-                        <div class="media-body">
-                            <h5 href="#">
-                                {{ $review->name }}
-                            </h5>
-                            <code class="text-muted">{{ $review->created_at->diffForHumans() }}</code>
+                <div class="ibox-content no-padding mt-2">
+                    <div class="social-feed-box">
+                        <div class="float-right">
+                            <button wire:click="removeReview({{$review->id}})" class="btn-xs btn-danger dim"
+                                    type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="social-avatar">
+                            <div class="media-body">
+                                <h5 href="#">
+                                    {{ $review->name }}
+                                </h5>
+                                <code class="text-muted">{{ $review->created_at->diffForHumans() }}</code>
+                            </div>
+                        </div>
+                        <div class="social-body">
+                            <p>
+                                {{ $review->message }}
+                            </p>
+                            <div class="btn-group">
+                                <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i></button>
+                            </div>
                         </div>
                     </div>
-                    <div class="social-body">
-                        <p>
-                            {{ $review->message }}
-                        </p>
-                        <div class="btn-group">
-                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> </button>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
+                </div>
             @endforeach
         </div>
     </div>
-
 </div>
 

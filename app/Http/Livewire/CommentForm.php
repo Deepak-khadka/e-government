@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
