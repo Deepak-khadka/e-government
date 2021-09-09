@@ -33,9 +33,14 @@ class UserServices
     /**
      * @return Authenticatable|null
      */
-    public function getActiveUser(): ?Authenticatable
+    public function getActiveUser()
     {
       dd(Auth::id());
+    }
+
+    public function getAllUsers()
+    {
+        return $this->model->get();
     }
 
 }

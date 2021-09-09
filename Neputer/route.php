@@ -16,3 +16,4 @@ Route::group([
          Route::get('/sample/search',['as'=>'sample.search', 'uses'=>'App\Http\Controllers\TestController@search']);
          Route::post('/sample/post',['as'=>'sample.post','uses'=>'App\Http\Controllers\TestController@store']);
 });
+

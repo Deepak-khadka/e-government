@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import fetchData from "../../includes/FetchData";
+import React from 'react';
 export default class ProfileDetails extends React.Component {
 
     constructor(props) {
@@ -11,7 +10,7 @@ export default class ProfileDetails extends React.Component {
     }
 
     componentDidMount() {
-        fetchData.GET('/profile').then(res => {
+        axios.get('/loggedIn-user').then(res => {
             this.setState({
                 isLoaded: true,
                 items: res.data.body,

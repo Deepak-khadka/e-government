@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+Route::get('/reset', function () {
+    return view('auth.passwords.email');
+})->name('reset');
 /* Route For HomePage*/
 Route::group(
 
@@ -22,7 +25,11 @@ Route::group(
     function () {
 
         Route::get('/',  ['as'=>'user.dashboard', 'uses'=>'HomeController@index']);
-        Route::get('/profile', function (){return view('profile');});
+        Route::get('/loggedIn-user',  ['as'=>'user.dashboard', 'uses'=>'HomeController@getLoggedInUser'])->name('loginUser');
+        Route::get('/profile', function (){
+            return view('profile'
+            );
+        })->name('user.profile');
 
 
     });

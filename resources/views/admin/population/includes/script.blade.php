@@ -66,7 +66,7 @@
 
        $('.service_type').on('change', function (){
            var service_type = $('.service_type').val();
-              if(service_type === 'unemployment')
+              if(service_type === "{{ \Neputer\Foundation\Lib\Services::UNEMPLOYMENT }}")
               {
                   $('#service').hide("slow");
               }

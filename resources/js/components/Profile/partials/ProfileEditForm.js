@@ -13,12 +13,12 @@ const ProfileEditForm = () =>{
            // email: email,
        }
 
-       axios.post('http://e-government.bro/api/profile', formData , {headers : {'token': 'bB3AfAqQv5tYtaCkkgIuQBuS9pQYN3OycpEEuOhJ'}})
-           .then( res => {
-               console.log(res);
-               console.log(res.data);
-           })
-           .catch((err)=> console.log(err.response));
+       // axios.post('http://e-government.bro/api/profile', formData , {headers : {'token': 'bB3AfAqQv5tYtaCkkgIuQBuS9pQYN3OycpEEuOhJ'}})
+       //     .then( res => {
+       //         console.log(res);
+       //         console.log(res.data);
+       //     })
+       //     .catch((err)=> console.log(err.response));
     }
     const handleChangeName=(e)=>{
     setPhone(e.target.value)

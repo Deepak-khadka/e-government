@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url ="http://e-government.bro/api";
+const url ="http://e-government.kathford/api";
 const http = axios.create({
     baseURL:url,
     responseType:'json'

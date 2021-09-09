@@ -6,8 +6,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Neputer\AdminController\BaseController;
+use Neputer\Controller\Admin\BaseController;
 use Neputer\Services\UserServices;
 
 class ProfileController extends BaseController
@@ -29,6 +28,7 @@ class ProfileController extends BaseController
      */
     public function index()
     {
+        dd('here');
         return $this->responseOk(new UserResource($this->userServices->getActiveUser()));
     }
 

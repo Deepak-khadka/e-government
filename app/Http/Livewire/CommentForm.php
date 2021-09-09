@@ -35,7 +35,7 @@ class CommentForm extends Component
 
     public function removeReview($reviewId)
     {
-       $review =  Review::find($reviewId);
+       $review = Review::find($reviewId);
        $review->delete();
        session()->flash('message', 'Review Deleted Successfully');
 

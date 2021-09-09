@@ -32,7 +32,6 @@ class PopulationFormValidation extends FormRequest
             'ward_no' => 'required',
             'marital_status' => 'required',
             'education_level' => 'required',
-            'service' => 'required',
             'present_location' => 'required',
             'citizenship_number'=> 'max:15',
             'file' => 'mimes:jpeg,png,jpg | required',

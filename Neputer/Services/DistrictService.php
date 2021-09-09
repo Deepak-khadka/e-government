@@ -56,7 +56,7 @@ class DistrictService
      */
     public function getJsonData($get)
     {
-       return $this->model->select('id','name')->where('province',$get)->get();
+       return $this->model->select('id', 'name')->where('province', $get)->get();
     }
 
 }

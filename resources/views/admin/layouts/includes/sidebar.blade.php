@@ -24,20 +24,14 @@
                    {{config('app.name')}}
                 </div>
             </li>
-            <li {{Request::is('admin/hospital*') || Request::is('admin/category*')|| Request::is('admin/population*')?'class=active':''}}>
+            <li {{Request::is('admin/population*')?'class=active':''}}>
                 <a href="#">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">Section</span>
                     <span class="fa arrow"></span>
                 </a>
-                    <ul class="nav nav-second-level {{Request::is('admin/hospital*'|| Request::is('admin/category*'))
+                    <ul class="nav nav-second-level {{Request::is(Request::is('admin/population*'))
                        ?'collapse in':'collapse'}}">
-                        <li {{Request::is('admin/hospital')?'class=active':''}}>
-                            <a href="{{ route('admin.hospital.index') }}"><span class="nav-label">Hospital</span> </a>
-                        </li>
-                        <li {{Request::is('admin/category')?'class=active':''}}>
-                            <a href="{{ route('admin.category.index') }}"><span class="nav-label">Category</span> </a>
-                        </li>
                         <li {{Request::is('admin/population')?'class=active':''}}>
                             <a href="{{ route('admin.population.index') }}"><span class="nav-label">Population</span> </a>
                         </li>

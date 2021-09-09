@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     @livewireStyles
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -24,7 +23,7 @@
     <link href="{{asset('assets/admin/css/custom.css')}}" rel="stylesheet">
     <link href="{{asset('assets/admin/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
     <link href="{{asset('assets/admin/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
-
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -70,6 +69,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('user.profile') }}">
+                                        {{ __('Profile') }}
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -86,7 +88,6 @@
             @yield('content')
         </main>
     </div>
-
-    @livewireScripts
 </body>
+@stack('js')
 </html>

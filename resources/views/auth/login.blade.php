@@ -113,18 +113,14 @@
                         <div class="brand_logo_container">
                             <img src="{{ asset('assets/admin/images/nepal.png') }}" class="brand_logo" alt="Logo">
                         </div>
-
-
-                    </div>
-
-                    <div class="d-flex justify-content-center form_container">
-
                         @if (session('status'))
                             <div class="mb-4 font-medium text-sm text-green-600">
                                 {{ session('status') }}
                             </div>
                         @endif
+                    </div>
 
+                    <div class="d-flex justify-content-center form_container">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="container">
@@ -175,10 +171,10 @@
 
                     <div class="mt-4">
                         <div class="d-flex justify-content-center links">
-                            Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+                            <a href="{{ route('reset') }}">If you are new Click Here</a>
                         </div>
                         <div class="d-flex justify-content-center links">
-                            <a href="#">Forgot your password?</a>
+                            <a href="/">Go to Home Page</a>
                         </div>
                     </div>
                 </div>

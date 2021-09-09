@@ -161,7 +161,7 @@
     <label class="col-sm-1 col-form-label is_required">Service Type</label>
 
     <div class="col-sm-3">
-        {{ Form::select('service_type',[null=>'Choose Job Status','unemployment'=>'Unemployment','employment'=>'Employment'],null , ['class'=>'form-control service_type', 'required']) }}
+        {{ Form::select('service_type',\Neputer\Foundation\Lib\Services::$statusType ,null , ['class'=>'form-control service_type', 'required']) }}
 
         @if($errors->has('service_type'))
             <label for="service_type" class="has-error"> {{ $errors->first('service_type') }}</label>
@@ -175,7 +175,7 @@
         <div class="row">
             <label class="col-sm-3 col-form-label is_required">Service </label>
             <div class="col-sm-9">
-                {{ Form::text('service',null , ['class'=>'form-control', 'required']) }}
+                {{ Form::select('service', \Neputer\Foundation\Lib\Services::$current, null , ['class'=>'form-control']) }}
 
                 @if($errors->has('service'))
                     <label for="service" class="has-error"> {{ $errors->first('service') }}</label>

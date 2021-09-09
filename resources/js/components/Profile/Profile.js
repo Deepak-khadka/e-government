@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ProfileDetails from "./partials/ProfileDetails";
-import ProfileEditForm from "./partials/ProfileEditForm";
 
 function Profile() {
     return(
@@ -100,10 +99,6 @@ function Profile() {
                     </div>
                     <div className="col-md-8">
                          <ProfileDetails />
-                        <div className="mb-8">
-                            <ProfileEditForm/>
-                        </div>
-
                     </div>
                 </div>
             </div>
